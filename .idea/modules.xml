@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Discovery-server/Discovery-server.iml" filepath="$PROJECT_DIR$/Discovery-server/Discovery-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Stage.iml" filepath="$PROJECT_DIR$/.idea/Stage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myDiscEur/myDiscEur.iml" filepath="$PROJECT_DIR$/myDiscEur/myDiscEur.iml" />
+    </modules>
+  </component>
+</project>
