@@ -12,17 +12,23 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     public UserRepository userRepository;
-    User saveUser(User user){
+    public User saveUser(User user){
         return this.userRepository.save(user);
     };
-    Optional<User> getUserById(Long id){
-        return this.userRepository.findById(id) ;
+    public User getUserById(Long id){
+        return this.userRepository.findOneById(id) ;
     };
-    List<User> getUsers(){
+    public List<User> getUsers(){
         return this.userRepository.findAll();
     };
-    User updateUser(User user){
+    public User updateUser(User user){
         return this.userRepository.save(user);
     };
-
+    public String deleteUser(Long id){
+        User user = this.getUserById(id);
+        if(user!=null){
+            this.userRepository.delete(user);
+            return "User Deleted";
+        }else return "No Such user";
+    }
 }
