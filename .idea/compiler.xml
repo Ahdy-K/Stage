@@ -7,17 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="myDiscEur" />
-        <module name="Discovery-server" />
+        <module name="UserService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Discovery-server" target="11" />
       <module name="myDiscEur" target="11" />
+      <module name="UserService" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Discovery-server" options="-parameters" />
+      <module name="UserService" options="-parameters" />
       <module name="myDiscEur" options="-parameters" />
     </option>
   </component>
