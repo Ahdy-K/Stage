@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../IPA-Gateway-service/IPA-Gateway-service.iml" filepath="$PROJECT_DIR$/../IPA-Gateway-service/IPA-Gateway-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Stagi.iml" filepath="$PROJECT_DIR$/.idea/Stagi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Stage/entreprise_service/entreprise_service.iml" filepath="$PROJECT_DIR$/Stage/entreprise_service/entreprise_service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Stage/myDiscEur/myDiscEur.iml" filepath="$PROJECT_DIR$/Stage/myDiscEur/myDiscEur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entreprise_service/entreprise_service.iml" filepath="$PROJECT_DIR$/entreprise_service/entreprise_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myDiscEur/myDiscEur.iml" filepath="$PROJECT_DIR$/myDiscEur/myDiscEur.iml" />
     </modules>
   </component>
 </project>

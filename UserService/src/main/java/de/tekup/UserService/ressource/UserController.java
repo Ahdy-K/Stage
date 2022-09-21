@@ -1,9 +1,9 @@
-package ressource;
+package de.tekup.UserService.ressource;
 
-import models.User;
+import de.tekup.UserService.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.UserService;
+import de.tekup.UserService.service.UserService;
 
 import java.util.List;
 import java.util.Optional;

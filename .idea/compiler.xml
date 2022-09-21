@@ -2,21 +2,28 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="myDiscEur" />
+        <module name="UserService" />
+        <module name="IPA-Gateway-service" />
         <module name="entreprise_service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="entreprise_service" target="11" />
+      <module name="IPA-Gateway-service" target="11" />
       <module name="myDiscEur" target="11" />
+      <module name="UserService" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="IPA-Gateway-service" options="-parameters" />
+      <module name="UserService" options="-parameters" />
       <module name="entreprise_service" options="-parameters" />
       <module name="myDiscEur" options="-parameters" />
     </option>

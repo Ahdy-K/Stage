@@ -1,12 +1,11 @@
-package service;
+package de.tekup.UserService.service;
 
-import models.User;
+import de.tekup.UserService.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
+import de.tekup.UserService.repository.UserRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
