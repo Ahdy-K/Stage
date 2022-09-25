@@ -1,4 +1,4 @@
-package models;
+package de.tekup.UserService.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,7 +37,7 @@ public class User {
     private String phone;
     @Column(name = "image")
     private String image;
-    @Column(name = "date of birth")
+    @Column(name = "dateOfBirth")
     @NotEmpty
     private Date DoB;
     @Column(name = "cv")
