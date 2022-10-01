@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/myDiscEur/pom.xml" />
         <option value="$PROJECT_DIR$/UserService/pom.xml" />
         <option value="$PROJECT_DIR$/../IPA-Gateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/IPA-Gateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/auth-service/pom.xml" />
       </list>
     </option>
   </component>

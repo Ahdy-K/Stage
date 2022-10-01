@@ -7,4 +7,5 @@ import org.springframework.data.repository.query.Param;
 public interface UserRepository extends JpaRepository<User,Long> {
     @Query("select  u from User u where u.id=:id ")
     User findOneById(@Param("id")Long  id);
+    User findUserByEmail(String email);
 }

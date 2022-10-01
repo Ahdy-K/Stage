@@ -1,23 +1,14 @@
-package de.tekup.entreprise_service.entities;
+package com.example.authservice;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Entreprise {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AppUser {
     private Long id;
     private String name;
     private Status status;
@@ -25,9 +16,15 @@ public class Entreprise {
     private String description;
     private String logo;
 
+
 }
- enum Status{
+enum Status{
     STARTUP,
+    ENTREPRISE
+
+}
+enum Role{
+    STUDENT,
     ENTREPRISE
 
 }

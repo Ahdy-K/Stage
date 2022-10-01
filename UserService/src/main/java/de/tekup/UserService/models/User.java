@@ -42,7 +42,7 @@ public class User {
     private Date DoB;
     @Column(name = "cv")
     private File CV;
-    @Transient
+
     private String password;
     @Column(name = "gender")
     private String gender;

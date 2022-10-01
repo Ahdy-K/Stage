@@ -5,6 +5,7 @@ import de.tekup.entreprise_service.entities.Offer;
 import de.tekup.entreprise_service.repositories.EntrepriseRepository;
 import de.tekup.entreprise_service.repositories.OfferRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +14,10 @@ import java.util.List;
 public class EntrepriseServiceImp implements  EntrepriseService {
     private final EntrepriseRepository entrepriseRepository;
     private final OfferRepository offerRepository;
+    private final PasswordEncoder passwordEncoder;
     @Override
     public Entreprise saveEntreprise(Entreprise entreprise) {
+        entreprise.setPassword(passwordEncoder.encode(entreprise.getPassword()));
         return entrepriseRepository.save(entreprise);
     }
 
@@ -34,8 +37,12 @@ public class EntrepriseServiceImp implements  EntrepriseService {
             entreprise.setDescription(newEntreprise.getDescription());
         if(newEntreprise.getStatus()!=null)
             entreprise.setStatus(newEntreprise.getStatus());
+        if(newEntreprise.getPassword()!=null)
+            entreprise.setPassword(passwordEncoder.encode(newEntreprise.getPassword()));
 
-        return entreprise ;
+
+
+        return entrepriseRepository.save(entreprise) ;
     }
 
     @Override
