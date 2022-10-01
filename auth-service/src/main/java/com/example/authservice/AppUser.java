@@ -12,6 +12,7 @@ public class AppUser {
     private Long id;
     private String name;
     private Status status;
+    public String email;
     private String password;
     private String description;
     private String logo;

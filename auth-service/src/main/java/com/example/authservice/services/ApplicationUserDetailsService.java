@@ -51,11 +51,11 @@ public class ApplicationUserDetailsService implements UserDetailsService {
         }
         else {
             ResponseEntity<Object> responseEntity =
-                    restTemplate.getForEntity("http://localhost:8081/api-entreprise/entreprise/{name}", Object.class, username);
+                    restTemplate.getForEntity("http://localhost:8081/api-entreprise/get-entreprise/{email}", Object.class, username);
             Object object = responseEntity.getBody();
             ObjectMapper mapper = new ObjectMapper();
             AppUser user = mapper.convertValue(object, AppUser.class);
-            return new User(user.getName(),user.getPassword(), Collections.emptyList());
+            return new User(user.getEmail(),user.getPassword(), Collections.emptyList());
         }
 
 

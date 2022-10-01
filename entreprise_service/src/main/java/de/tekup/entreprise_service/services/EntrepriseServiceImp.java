@@ -22,6 +22,11 @@ public class EntrepriseServiceImp implements  EntrepriseService {
     }
 
     @Override
+    public Entreprise getEntrepriseByEmail(String Email) {
+        return entrepriseRepository.findEntrepriseByEmail(Email);
+    }
+
+    @Override
     public void deleteEntreprise(Long id) {
         Entreprise entreprise=entrepriseRepository.findEntrepriseById(id);
         entrepriseRepository.delete(entreprise);

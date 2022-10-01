@@ -25,6 +25,14 @@ public class entrepriseController {
         else
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Entreprise Not Found");
     }
+    @GetMapping("/get-entreprise/{email}")
+    public ResponseEntity<?> getEntrepriseByEmail(@PathVariable String email){
+        Entreprise entreprise=entrepriseService.getEntrepriseByEmail(email);
+        if(entreprise!=null)
+            return  ResponseEntity.ok().body(entreprise);
+        else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Entreprise Not Found");
+    }
 
     @GetMapping("/entreprises")
     public ResponseEntity<?> getEntreprises(){
