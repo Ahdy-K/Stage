@@ -12,6 +12,7 @@ public interface EntrepriseService {
     Entreprise updateEntreprise(Long id,Entreprise newEntreprise);
     Entreprise getEntreprise(String name);
     Entreprise getEntrepriseById(Long Id);
+    Entreprise getEntrepriseByEmail(String Email);
     List<Entreprise> getEntreprises();
 
 

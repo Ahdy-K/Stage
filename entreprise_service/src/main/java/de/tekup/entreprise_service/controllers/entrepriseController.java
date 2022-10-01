@@ -14,12 +14,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/api-entreprise")
 public class entrepriseController {
     private final EntrepriseService entrepriseService;
     @GetMapping("/entreprise/{name}")
     public ResponseEntity<?> getEntreprise(@PathVariable String name){
         Entreprise entreprise=entrepriseService.getEntreprise(name);
+        if(entreprise!=null)
+            return  ResponseEntity.ok().body(entreprise);
+        else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Entreprise Not Found");
+    }
+    @GetMapping("/get-entreprise/{email}")
+    public ResponseEntity<?> getEntrepriseByEmail(@PathVariable String email){
+        Entreprise entreprise=entrepriseService.getEntrepriseByEmail(email);
         if(entreprise!=null)
             return  ResponseEntity.ok().body(entreprise);
         else
