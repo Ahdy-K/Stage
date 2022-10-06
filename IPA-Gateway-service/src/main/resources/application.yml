@@ -12,3 +12,8 @@ spring:
           uri: http://localhost:9090/
           predicates:
             - Path=/api-user/**
+        # Route SpontaneousApplication
+        - id: r3
+          uri: http://localhost:9099/
+          predicates:
+            - Path:/spontaneousapplications/**
