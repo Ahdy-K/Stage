@@ -37,12 +37,12 @@ public class User {
     private String phone;
     @Column(name = "image")
     private String image;
-    @Column(name = "date_of_birth")
+    @Column(name = "dateOfBirth")
     @NotEmpty
     private Date DoB;
     @Column(name = "cv")
     private File CV;
-
+    @Transient
     private String password;
     @Column(name = "gender")
     private String gender;
