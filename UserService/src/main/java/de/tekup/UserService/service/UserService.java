@@ -23,6 +23,9 @@ public class UserService {
     public User updateUser(User user){
         return this.userRepository.save(user);
     };
+    public User getUserByEmail(String email){
+        return this.userRepository.findUserByEmail(email);
+    }
     public String deleteUser(Long id){
         User user = this.getUserById(id);
         if(user!=null){

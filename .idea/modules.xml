@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IPA-Gateway-service/IPA-Gateway-service.iml" filepath="$PROJECT_DIR$/IPA-Gateway-service/IPA-Gateway-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../IPA-Gateway-service/IPA-Gateway-service.iml" filepath="$PROJECT_DIR$/../IPA-Gateway-service/IPA-Gateway-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/InternshipApplicationService/InternshipApplicationService.iml" filepath="$PROJECT_DIR$/InternshipApplicationService/InternshipApplicationService.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Stagi.iml" filepath="$PROJECT_DIR$/.idea/Stagi.iml" />
       <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
