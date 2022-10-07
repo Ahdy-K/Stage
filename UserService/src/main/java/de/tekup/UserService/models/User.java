@@ -23,6 +23,7 @@ public class User {
     @Column(name = "id")
     private Long id;
     @Column(name = "email")
+
     @Email(message="Please provide a valid email")
     @NotEmpty
     private String email;
