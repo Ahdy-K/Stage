@@ -2,6 +2,7 @@ package de.tekup.UserService.ressource;
 
 import de.tekup.UserService.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import de.tekup.UserService.service.UserService;
@@ -32,8 +33,12 @@ public class UserController {
         return this.userService.getUserByEmail(email);
     }
     @PostMapping("/add/user")
-    public User addUser(@RequestBody User user ){
-        return this.userService.saveUser(user);
+    public ResponseEntity<?> addUser(@RequestBody User user ){
+        User u =userService.getUserByEmail(user.getEmail());
+        if(u==null)
+            return ResponseEntity.ok().body(userService.saveUser(u));
+        else
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User Exist In DB ");
     }
     @PutMapping("/update/{userId}")
     public Optional<User> updateUser(@RequestBody User user ){

@@ -5,7 +5,10 @@ import { UserService } from '../../services/user.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
+  userexist:boolean=false;
+  
   
   constructor(private userService:UserService) { }
 
@@ -18,7 +21,10 @@ export class SignupComponent implements OnInit {
     data =>{console.log(form);
     },
     error => {
-      console.log(error)
+      if(error.error=="User Exist In DB ")
+    {
+      this.userexist=true;
+    }
     }
    )
 

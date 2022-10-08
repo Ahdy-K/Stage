@@ -19,13 +19,15 @@ import java.util.Date;
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "email")
+
+    @Column(name = "email",unique = true,nullable = false)
     @Email(message="Please provide a valid email")
-    @NotEmpty
+    @NotEmpty(message="Provide your Email")
     private String email;
+
     @Column(name = "firstName")
     @NotEmpty
     private String firstName;
@@ -42,7 +44,8 @@ public class User {
     private Date DoB;
     @Column(name = "cv")
     private File CV;
-    @Transient
+
+
     private String password;
     @Column(name = "gender")
     private String gender;

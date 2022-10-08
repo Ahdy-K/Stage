@@ -8,6 +8,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './user/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './shared/components/login/login.component';
 
 
 
@@ -16,21 +17,22 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SignupComponent
-  
+    SignupComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
-     
-    
-    
-    
-    
+
+
+
+
+
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })
