@@ -6,17 +6,21 @@ import de.tekup.internshipapplicationservice.models.RequestApplication;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@NoArgsConstructor
-@AllArgsConstructor
-@RequiredArgsConstructor
+
 @RestController
 @RequestMapping("/request")
 public class RequestController {
 
-    private  RequestService requestService;
+    private RequestService requestService;
+
+    public RequestController(RequestService requestService) {
+        this.requestService = requestService;
+    }
+
     @PostMapping("/makerequest/{offerId}")
     public void makeRequest(@PathVariable("offerId") Long offerId,@RequestBody RequestApplication request) {
         requestService.makeRequest(offerId,request);
@@ -51,12 +55,12 @@ public class RequestController {
         requestService.deleteRequest(id);
 
     }
-    @GetMapping("/getRequestByUser/{userid}")
-    public List<RequestApplication> getRequestByUserId(@PathVariable Long userId){
+   /* @GetMapping("/getRequestByUser/{userId}")
+    public List<RequestApplication> getRequestByUserId(@PathVariable("userId") Long userId){
         return  requestService.getRequestByUserId(userId);
 
-    }
-    @GetMapping("/getRequestByOffer/{offerid")
+    }*/
+    @GetMapping("/getRequestByOffer/{offerid}")
     public List<RequestApplication> getRequestByOffer(@PathVariable("offerid") Long offerid){
         return  requestService.getRequestByOffer(offerid);
 

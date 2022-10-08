@@ -53,10 +53,10 @@ public class RequestService {
         requestApplicationRepository.delete(request);
 
     }
-    public List<RequestApplication> getRequestByUserId(Long userId){
-        return  requestApplicationRepository.findRequestApplicationByUser_id(userId);
+   /* public List<RequestApplication> getRequestByUserId(Long userId){
+        return  requestApplicationRepository.findRequestApplicationsByUser_id(userId);
 
-    }
+    }*/
     public List<RequestApplication> getRequestByOffer(Long offerid){
         Offer offer =offerRepository.findOfferById(offerid);
         return  requestApplicationRepository.findRequestApplicationsByOffer(offer);
