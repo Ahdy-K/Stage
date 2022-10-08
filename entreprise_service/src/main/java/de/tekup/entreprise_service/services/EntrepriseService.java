@@ -15,13 +15,13 @@ public interface EntrepriseService {
     Entreprise getEntrepriseByEmail(String Email);
     List<Entreprise> getEntreprises();
 
-
+/*
     void makeOffer(Entreprise entreprise, Offer offer);
     List<Offer> getOffers();
 
     Offer getOffer(Long id);
 
     Offer updateOffer(Long  id ,Offer newOffer);
-    void deletOffer(Long id);
+    void deletOffer(Long id);*/
 
 }

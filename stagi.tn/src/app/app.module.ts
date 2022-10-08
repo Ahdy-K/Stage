@@ -9,6 +9,9 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { SignupComponent } from './user/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './shared/components/login/login.component';
+import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -18,14 +21,17 @@ import { LoginComponent } from './shared/components/login/login.component';
     HeaderComponent,
     FooterComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    MyoffersComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+   
+    BrowserAnimationsModule,MatDialogModule
 
 
 

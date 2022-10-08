@@ -3,7 +3,6 @@ package de.tekup.entreprise_service.services;
 import de.tekup.entreprise_service.entities.Entreprise;
 import de.tekup.entreprise_service.entities.Offer;
 import de.tekup.entreprise_service.repositories.EntrepriseRepository;
-import de.tekup.entreprise_service.repositories.OfferRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EntrepriseServiceImp implements  EntrepriseService {
     private final EntrepriseRepository entrepriseRepository;
-    private final OfferRepository offerRepository;
+   // private final OfferRepository offerRepository;
     private final PasswordEncoder passwordEncoder;
     @Override
     public Entreprise saveEntreprise(Entreprise entreprise) {
@@ -64,7 +63,7 @@ public class EntrepriseServiceImp implements  EntrepriseService {
         return entrepriseRepository.findAll();
     }
 
-    @Override
+  /*  @Override
     public void makeOffer(Entreprise entreprise, Offer offer) {
         offer.setEntreprise(entreprise);
         offerRepository.save(offer);
@@ -100,5 +99,5 @@ public class EntrepriseServiceImp implements  EntrepriseService {
         Offer offer=offerRepository.getOfferById(id);
         offerRepository.delete(offer);
 
-    }
+    }*/
 }

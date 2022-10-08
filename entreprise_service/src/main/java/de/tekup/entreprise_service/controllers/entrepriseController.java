@@ -9,6 +9,9 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import java.security.Principal;
 
 
 @RestController
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api-entreprise")
 public class entrepriseController {
     private final EntrepriseService entrepriseService;
+    private final RestTemplate restTemplate;
     @GetMapping("/entreprise/{name}")
     public ResponseEntity<?> getEntreprise(@PathVariable String name){
         Entreprise entreprise=entrepriseService.getEntreprise(name);
@@ -67,14 +71,16 @@ public class entrepriseController {
     }
 
 
-    @PostMapping("/makeoffer/{id}")
-    public ResponseEntity<?> makeOffer(@PathVariable Long id,@RequestBody Offer offer){
-        Entreprise entreprise =entrepriseService.getEntrepriseById(id);
-        entrepriseService.makeOffer(entreprise,offer);
-        return ResponseEntity.ok().body(offer);
+
+    @PostMapping("/makeoffer/{enterpriseId}")
+    public ResponseEntity<?> makeOffer(@PathVariable("enterpriseId") Long enterpriseId,@RequestBody Offer offer){
+        ResponseEntity<?> responseEntity = restTemplate.
+                postForEntity("http://localhost:9099/offers/makeoffer/{enterpriseId}", offer,Object.class,enterpriseId);
+        return responseEntity;
 
     }
-    @GetMapping("/offer/{id}")
+
+   /* @GetMapping("/offer/{id}")
     public ResponseEntity<?> getOffer(@PathVariable Long id){
         Offer offer=entrepriseService.getOffer(id);
         if(offer!=null)
@@ -107,7 +113,7 @@ public class entrepriseController {
         return ResponseEntity.ok().body(offer);
 
     }
-
+*/
 
 
 }

@@ -5,6 +5,7 @@ import de.tekup.internshipapplicationservice.models.Offer;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,9 +37,9 @@ public class OfferController {
 
     //save new offer to DB
     @PostMapping("/makeoffer/{enterpriseId}")
-    public void makeOffer(@PathVariable("enterpriseId") Long enterpriseId,@RequestBody Offer offer){
+    public ResponseEntity<Offer> makeOffer(@PathVariable("enterpriseId") Long enterpriseId, @RequestBody Offer offer){
 
-         this.offerService.makeOffer(enterpriseId,offer);
+        return ResponseEntity.ok().body(this.offerService.makeOffer(enterpriseId,offer));
     }
     //update an offer
     @PutMapping("/updateoffer/{offerId}")

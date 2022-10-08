@@ -13,9 +13,9 @@ public class OfferService {
 
 
 
-    public void makeOffer(Long entrepriseId, Offer offer) {
+    public Offer makeOffer(Long entrepriseId, Offer offer) {
         offer.setEntrepriseId(entrepriseId);
-        offerRepository.save(offer);
+        return offerRepository.save(offer);
 
     }
 

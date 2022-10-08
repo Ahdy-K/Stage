@@ -50,12 +50,36 @@
                                         <li><a routerLink="/us-signup">Entreprises</a></li>
                                         <li><a routerLink="/en-signup">Offers</a></li>
                                         <li><a routerLink="/en-signup">Internships</a></li>
-                                        <li style="float: right"><a href="#">Page</a>
+                                        <li style="float: right"><a href="#">{{User}}</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                                <li><a href="job_details.html">job Details</a></li>
+                                                <li><a routerLink="/home" (click)="logout()">Logout</a></li>
+                                                <li><a href="single-blog.html">Profile</a></li>
+                                            </ul>
+                                        </li>
+
+
+                                    </ul>
+
+                                </nav>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9" *ngIf="Account=='ENTREPRISE'">
+                        <div class="menu-wrapper">
+                            <!-- Main-menu -->
+                            <div class="main-menu">
+                                <nav class="d-none d-lg-block">
+                                    <ul id="navigation">
+                                        <li><a routerLink="/">Home</a></li>
+                                        <li><a routerLink="/us-signup">Condidtures</a></li>
+                                        <li><a routerLink="/myoffers">My Offers</a></li>
+                                        <li><a routerLink="/en-signup">Students</a></li>
+                                        <li style="float: right"><a href="#">{{User}}</a>
+                                            <ul class="submenu">
+                                                <li><a routerLink="/home" (click)="logout()">Logout</a></li>
+                                                <li><a href="single-blog.html">Profile</a></li>
                                             </ul>
                                         </li>
 

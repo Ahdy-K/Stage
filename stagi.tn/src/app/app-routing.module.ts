@@ -4,6 +4,7 @@ import { SignupComponent } from './user/components/signup/signup.component';
 import { SignupComponent as EnSignupComponent } from './entreprise/components/signup/signup.component';
 import { IndexComponent } from './home/components/index/index.component';
 import { LoginComponent } from './shared/components/login/login.component';
+import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'us-signup', component: SignupComponent},
   {path: 'en-signup', component: EnSignupComponent},
   {path: 'log-in', component: LoginComponent},
-  {path: '', component: IndexComponent}
+  {path: '', component: IndexComponent},
+  {path: 'myoffers', component: MyoffersComponent}
   
 ];
 

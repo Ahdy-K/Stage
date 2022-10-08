@@ -24,12 +24,15 @@ export class LoginComponent implements OnInit {
         console.log(data);
         window.localStorage.removeItem('token')
         window.localStorage.setItem('token', data['jwt'])
-        this.router.navigateByUrl("")
+
         this.decodedToken = this.helper.decodeToken(data['jwt'])
         window.localStorage.removeItem('USER')
         window.localStorage.setItem('USER', this.decodedToken['sub'])
         window.localStorage.removeItem('ACCOUNT')
         window.localStorage.setItem('ACCOUNT', this.decodedToken['accountType'])
+
+        window.location.reload();
+
 
 
 
