@@ -5,10 +5,17 @@ import de.tekup.entreprise_service.entities.Offer;
 import de.tekup.entreprise_service.services.EntrepriseService;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import java.security.Principal;
 
 
 @RestController
@@ -17,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api-entreprise")
 public class entrepriseController {
     private final EntrepriseService entrepriseService;
+    private final RestTemplate restTemplate;
     @GetMapping("/entreprise/{name}")
     public ResponseEntity<?> getEntreprise(@PathVariable String name){
         Entreprise entreprise=entrepriseService.getEntreprise(name);
@@ -36,6 +44,7 @@ public class entrepriseController {
 
     @GetMapping("/entreprises")
     public ResponseEntity<?> getEntreprises(){
+
         return  ResponseEntity.ok().body(entrepriseService.getEntreprises());
     }
 
@@ -67,14 +76,28 @@ public class entrepriseController {
     }
 
 
-    @PostMapping("/makeoffer/{id}")
-    public ResponseEntity<?> makeOffer(@PathVariable Long id,@RequestBody Offer offer){
-        Entreprise entreprise =entrepriseService.getEntrepriseById(id);
-        entrepriseService.makeOffer(entreprise,offer);
-        return ResponseEntity.ok().body(offer);
+
+
+    @PostMapping("/makeoffer")
+    public ResponseEntity<?> makeOffer(@RequestBody Offer offer){
+        Object p=SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if(p instanceof UserDetails){
+             username=((UserDetails)p).getUsername();
+        }else{
+             username = p.toString();
+
+        }
+        Entreprise entreprise=entrepriseService.getEntrepriseByEmail(username);
+        Long enterpriseId=entreprise.getId();
+        ResponseEntity<?> responseEntity = restTemplate.
+                postForEntity("http://localhost:9099/offers/makeoffer/{enterpriseId}", offer,Object.class,enterpriseId);
+
+        return responseEntity;
 
     }
-    @GetMapping("/offer/{id}")
+
+   /* @GetMapping("/offer/{id}")
     public ResponseEntity<?> getOffer(@PathVariable Long id){
         Offer offer=entrepriseService.getOffer(id);
         if(offer!=null)
@@ -107,7 +130,7 @@ public class entrepriseController {
         return ResponseEntity.ok().body(offer);
 
     }
-
+*/
 
 
 }

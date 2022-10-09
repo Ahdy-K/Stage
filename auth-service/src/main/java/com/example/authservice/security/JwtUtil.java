@@ -43,7 +43,7 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String,Object> claims=new HashMap<>();
-        if(userDetails.getUsername().contains("@")){
+        if(userDetails.getUsername().contains("gmail")||userDetails.getUsername().contains("hotmail")||userDetails.getUsername().contains("yahoo")){
             claims.put("accountType","Student");
 
         }else{

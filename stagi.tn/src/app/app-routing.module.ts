@@ -7,6 +7,8 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { ListofferComponent } from './offre/components/listoffer/listoffer.component';
 import { DashboardComponent } from './user/components/dashboard/dashboard.component';
 
+import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
+
 
 const routes: Routes = [
 
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: 'offerlist', component: ListofferComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: '', component: IndexComponent}
+  
+  {path: 'myoffers', component: MyoffersComponent}
   
 ];
 

@@ -10,8 +10,10 @@ import { ListofferComponent } from '../offre/components/listoffer/listoffer.comp
 
 @NgModule({
   declarations: [
+
     SignupComponent,
     DashboardComponent
+
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ package de.tekup.UserService.service;
 
 import de.tekup.UserService.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import de.tekup.UserService.repository.UserRepository;
 
@@ -10,8 +11,11 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
+    private  BCryptPasswordEncoder encoder;
+    @Autowired
     public UserRepository userRepository;
     public User saveUser(User user){
+        user.setPassword(encoder.encode(user.getPassword()));
         return this.userRepository.save(user);
     };
     public User getUserById(Long id){
@@ -29,5 +33,9 @@ public class UserService {
             this.userRepository.delete(user);
             return "User Deleted";
         }else return "No Such user";
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
     }
 }
