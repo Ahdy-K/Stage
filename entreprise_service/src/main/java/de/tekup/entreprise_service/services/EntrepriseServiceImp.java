@@ -4,13 +4,22 @@ import de.tekup.entreprise_service.entities.Entreprise;
 import de.tekup.entreprise_service.entities.Offer;
 import de.tekup.entreprise_service.repositories.EntrepriseRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class EntrepriseServiceImp implements  EntrepriseService {
+    @Override
+    public UserDetails loadUserByUsername(String username) {
+        Entreprise en=entrepriseRepository.findEntrepriseByEmail(username);
+        return new User(en.getEmail(),en.getPassword(), Collections.emptyList());
+    }
+
     private final EntrepriseRepository entrepriseRepository;
    // private final OfferRepository offerRepository;
     private final PasswordEncoder passwordEncoder;

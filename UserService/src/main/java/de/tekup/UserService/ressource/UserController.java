@@ -35,8 +35,10 @@ public class UserController {
     @PostMapping("/add/user")
     public ResponseEntity<?> addUser(@RequestBody User user ){
         User u =userService.getUserByEmail(user.getEmail());
-        if(u==null)
-            return ResponseEntity.ok().body(userService.saveUser(u));
+        if(u==null) {
+
+            return ResponseEntity.ok().body(userService.saveUser(user));
+        }
         else
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User Exist In DB ");
     }

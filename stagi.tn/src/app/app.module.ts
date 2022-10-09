@@ -12,6 +12,10 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MakeofferComponent } from './entreprise/components/makeoffer/makeoffer.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
+
 
 
 
@@ -22,7 +26,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    MyoffersComponent
+    MyoffersComponent,
+    MakeofferComponent,
+    
+    
 
   ],
   imports: [
@@ -30,6 +37,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxMatSelectSearchModule,
+    
+    
    
     BrowserAnimationsModule,MatDialogModule
 

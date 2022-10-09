@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './components/signup/signup.component';
-import { MyoffersComponent } from './components/myoffers/myoffers.component';
-import { MakeofferComponent } from './components/makeoffer/makeoffer.component';
+
+import { FormsModule } from '@angular/forms';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
 
 
 
@@ -10,10 +12,13 @@ import { MakeofferComponent } from './components/makeoffer/makeoffer.component';
 @NgModule({
   declarations: [
     SignupComponent,
-    MakeofferComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    NgxMatSelectSearchModule,
+   
+    
 
   ]
 })

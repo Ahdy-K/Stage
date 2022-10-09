@@ -3,6 +3,7 @@ package de.tekup.entreprise_service.services;
 import de.tekup.entreprise_service.entities.Entreprise;
 import de.tekup.entreprise_service.entities.Offer;
 import org.apache.catalina.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface EntrepriseService {
     Entreprise getEntrepriseById(Long Id);
     Entreprise getEntrepriseByEmail(String Email);
     List<Entreprise> getEntreprises();
+
+    UserDetails loadUserByUsername(String username);
 
 /*
     void makeOffer(Entreprise entreprise, Offer offer);
