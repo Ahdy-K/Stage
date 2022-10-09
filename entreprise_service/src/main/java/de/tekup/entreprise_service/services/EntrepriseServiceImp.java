@@ -108,5 +108,7 @@ public class EntrepriseServiceImp implements  EntrepriseService {
         Offer offer=offerRepository.getOfferById(id);
         offerRepository.delete(offer);
 
-    }*/
+
+
+    }
 }
