@@ -8,6 +8,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './user/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { ListofferComponent } from './offre/components/listoffer/listoffer.component';
 
 
 
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
      
     
     
