@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './components/signup/signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ListofferComponent } from '../offre/components/listoffer/listoffer.component';
 
 
 
@@ -8,11 +10,12 @@ import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
-    SignupComponent
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
-  ]
+    
    
 })
 export class UserModule { }
