@@ -11,6 +11,8 @@ export class ListofferComponent implements OnInit {
   constructor(private offreService:OffreService) { }
 
   ngOnInit(): void {
+
+    this.getoffers()
   }
 
   getoffers():void

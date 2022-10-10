@@ -17,7 +17,7 @@ import { ListofferComponent } from '../offre/components/listoffer/listoffer.comp
   ],
   imports: [
     CommonModule,
-    
+  ]
    
 })
 export class UserModule { }

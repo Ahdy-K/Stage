@@ -16,7 +16,7 @@ import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MakeofferComponent } from './entreprise/components/makeoffer/makeoffer.component';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
 
 
 
@@ -38,13 +38,6 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    
-     
-
-    NgxMatSelectSearchModule,
-
-    
-   
     BrowserAnimationsModule,MatDialogModule
 
 
