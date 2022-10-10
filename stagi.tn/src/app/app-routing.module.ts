@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'log-in', component: LoginComponent},
   {path: 'offerlist', component: ListofferComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: '', component: IndexComponent}
+  {path: '', component: IndexComponent},
   
   {path: 'myoffers', component: MyoffersComponent}
   
