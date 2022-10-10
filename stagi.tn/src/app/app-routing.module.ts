@@ -5,13 +5,14 @@ import { SignupComponent as EnSignupComponent } from './entreprise/components/si
 import { IndexComponent } from './home/components/index/index.component';
 import { LoginComponent } from './shared/components/login/login.component';
 import { CvComponent } from './cv/cv.component';
-
+import { UserprofileComponent } from './userprofile/userprofile.component';
 const routes: Routes = [
   { path: 'us-signup', component: SignupComponent },
   { path: 'en-signup', component: EnSignupComponent },
   { path: 'log-in', component: LoginComponent },
   { path: '', component: IndexComponent },
   { path: 'addcv', component: CvComponent },
+  { path: 'updatecv/:id', component: UserprofileComponent },
 ];
 
 @NgModule({

@@ -14,7 +14,7 @@ export class UserService {
   getUser(id: any): Observable<any> {
     return this.http.get('http://localhost:9090/api-user/add/user/' + id);
   }
-  updateUser(form: any): Observable<any> {
-    return this.http.get('http://localhost:9090/api-user/add/user', form);
+  updateUser(form: any, id: any): Observable<any> {
+    return this.http.get('http://localhost:9090/api-user/add/' + id, form);
   }
 }
