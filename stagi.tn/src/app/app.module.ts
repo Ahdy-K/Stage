@@ -11,6 +11,18 @@ import { FormsModule } from '@angular/forms';
 import { CvComponent } from './cv/cv.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
+import { ListofferComponent } from './offre/components/listoffer/listoffer.component';
+
+import { LoginComponent } from './shared/components/login/login.component';
+import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MakeofferComponent } from './entreprise/components/makeoffer/makeoffer.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { AuthInterceptor } from './auth.intercepter';
+import { ListUserComponent } from './user/components/list-user/list-user.component';
+import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
+
 
 
 @NgModule({
@@ -19,23 +31,44 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     HeaderComponent,
     FooterComponent,
     SignupComponent,
+
+    LoginComponent,
+    MyoffersComponent,
+    MakeofferComponent,
+    ListUserComponent,
+    DetailsOfferComponent
+    
+    
+
     CvComponent,
     UserprofileComponent
-  
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
      
+
+    NgxMatSelectSearchModule,
+
     
-    
-    
-    
+   
+    BrowserAnimationsModule,MatDialogModule
+
+
+
   ],
-  
-  providers: [],
+
+  providers: [
+   {
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+   }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
