@@ -48,16 +48,17 @@ public class UserController {
     public Optional<User> updateUser(@PathVariable("userId") Long id,@RequestBody User user ){
 
             return Optional.ofNullable(this.userService.updateUser(id,user));//}else
-          
+
     }
     // upload user CV
     @PostMapping("/cv/upload")
     public ResponseEntity<?> uploadCV( @RequestBody MultipartFile file ) {
 
-        String fileName = file.getOriginalFilename();
+            String fileName = file.getOriginalFilename();
+
         try {
             // C:\\Users\\Asus\\Downloads\\Project Stagi\\Stage
-            file.transferTo(new File("C:\\Users\\Asus\\Downloads\\Project Stagi\\Stage\\storage\\" + fileName));
+            file.transferTo(new File("C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\storage\\" + fileName));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

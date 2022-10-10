@@ -12,19 +12,30 @@ import { CVService } from './cv.service';
 export class CvComponent implements OnInit {
   constructor(private cvservice: UserService) {}
   ngOnInit(): void {}
-  addcv(cv: any): void {
-    let formData = new FormData();
-    formData.append('file', cv.file);
-    if (formData) {
-      this.cvservice.addCv(formData).subscribe(
-        (datacv: any) => {
-          console.log('dataCV:::', datacv);
-        },
-        (err: any) => {
-          console.log(err);
-        }
-      );
-    }
+  addcv(value: any): void {
+    // let formData = new FormData();
+    // formData.append('file', value.file);
+    // console.log('FILE///', value);
+    // console.log('FORMDAT', formData);
+    // console.log('Value///', value);
+    // if (formData) {
+    //   this.cvservice.addCv(formData).subscribe(
+    //     (datacv: any) => {
+    //       console.log('dataCV:::', datacv);
+    //     },
+    //     (err: any) => {
+    //       console.log(err);
+    //     }
+    //   );
+    // }
+
+    var formData = new FormData();
+    formData.append('file', value.file.files[0]);
+    console.log('FILE///', value.file);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:9090/api-user/cv/upload', true);
+    xhr.send(formData);
+    console.log('File uploaded');
   }
 
   // selectedFiles?: FileList;

@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'log-in', component: LoginComponent },
   { path: '', component: IndexComponent },
   { path: 'addcv', component: CvComponent },
-  { path: 'updatecv/:id', component: UserprofileComponent },
+  { path: 'userprofile/:id', component: UserprofileComponent },
 ];
 
 @NgModule({

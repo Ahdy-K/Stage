@@ -1,7 +1,7 @@
 <h1>Upload your CV here</h1>
 <form #f="ngForm" (ngSubmit)="addcv(f.value)" class="form-contact contact_form">
   <label for="file">CV :</label>
-  <input ngModule type="file" name="file" id="file" />
+  <input ngModule type="file" ngModel name="file" id="file" />
   <button type="submit" class="button button-contactForm boxed-btn">
     ADD CV
   </button>
