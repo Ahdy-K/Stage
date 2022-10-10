@@ -2,11 +2,14 @@ package de.tekup.UserService.ressource;
 
 import de.tekup.UserService.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import de.tekup.UserService.service.UserService;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +45,19 @@ public class UserController {
             return Optional.ofNullable(this.userService.updateUser(userToUpdate));
         }else
             return null;
+    }
+    // upload user CV
+    @PostMapping("/cv/upload")
+    public ResponseEntity<?> uploadCV( @RequestBody MultipartFile file ) {
+
+        String fileName = file.getOriginalFilename();
+        try {
+            // C:\\Users\\Asus\\Downloads\\Project Stagi\\Stage
+            file.transferTo(new File("C:\\Users\\Asus\\Downloads\\Project Stagi\\Stage\\storage\\" + fileName));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+        return ResponseEntity.ok("File uploaded successfully.");
     }
     @DeleteMapping("/delete/{userId}")
     public String  deleteUser(@PathVariable("userId") Long userId ){

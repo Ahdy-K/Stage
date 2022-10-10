@@ -30,4 +30,8 @@ public class UserService {
             return "User Deleted";
         }else return "No Such user";
     }
+
+    public User getUserByEmail(String email) {
+        return this.userRepository.findUserByEmail(email);
+    }
 }

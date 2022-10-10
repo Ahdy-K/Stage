@@ -4,19 +4,18 @@ import { SignupComponent } from './user/components/signup/signup.component';
 import { SignupComponent as EnSignupComponent } from './entreprise/components/signup/signup.component';
 import { IndexComponent } from './home/components/index/index.component';
 import { LoginComponent } from './shared/components/login/login.component';
-
+import { CvComponent } from './cv/cv.component';
 
 const routes: Routes = [
-
-  {path: 'us-signup', component: SignupComponent},
-  {path: 'en-signup', component: EnSignupComponent},
-  {path: 'log-in', component: LoginComponent},
-  {path: '', component: IndexComponent}
-  
+  { path: 'us-signup', component: SignupComponent },
+  { path: 'en-signup', component: EnSignupComponent },
+  { path: 'log-in', component: LoginComponent },
+  { path: '', component: IndexComponent },
+  { path: 'addcv', component: CvComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
