@@ -45,12 +45,10 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User Exist In DB ");
     }
     @PutMapping("/update/{userId}")
-    public Optional<User> updateUser(@RequestBody User user ){
-        User userToUpdate= this.userService.getUserById(user.getId());
-        if(userToUpdate!=null){
-            return Optional.ofNullable(this.userService.updateUser(userToUpdate));
-        }else
-            return null;
+    public Optional<User> updateUser(@PathVariable("userId") Long id,@RequestBody User user ){
+
+            return Optional.ofNullable(this.userService.updateUser(id,user));//}else
+          
     }
     // upload user CV
     @PostMapping("/cv/upload")

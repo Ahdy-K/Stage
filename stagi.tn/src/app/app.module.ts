@@ -5,7 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderComponent } from './shared/components/header/header.component';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { SignupComponent } from './user/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { CvComponent } from './cv/cv.component';
@@ -23,8 +27,6 @@ import { AuthInterceptor } from './auth.intercepter';
 import { ListUserComponent } from './user/components/list-user/list-user.component';
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,39 +38,30 @@ import { DetailsOfferComponent } from './entreprise/components/details-offer/det
     MyoffersComponent,
     MakeofferComponent,
     ListUserComponent,
-    DetailsOfferComponent
-    
-    
+    DetailsOfferComponent,
 
     CvComponent,
-    UserprofileComponent
-
+    UserprofileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    
-     
 
     NgxMatSelectSearchModule,
 
-    
-   
-    BrowserAnimationsModule,MatDialogModule
-
-
-
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
 
   providers: [
-   {
-    provide:HTTP_INTERCEPTORS,
-    useClass:AuthInterceptor,
-    multi:true
-   }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,7 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserService } from '../user/services/user.service';
 import { CVService } from './cv.service';
 
 @Component({
@@ -9,17 +10,17 @@ import { CVService } from './cv.service';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent implements OnInit {
-  constructor(private cvservice: CVService) {}
-
+  constructor(private cvservice: UserService) {}
+  ngOnInit(): void {}
   addcv(cv: any): void {
     let formData = new FormData();
     formData.append('file', cv.file);
     if (formData) {
       this.cvservice.addCv(formData).subscribe(
-        (datacv) => {
+        (datacv: any) => {
           console.log('dataCV:::', datacv);
         },
-        (err) => {
+        (err: any) => {
           console.log(err);
         }
       );
