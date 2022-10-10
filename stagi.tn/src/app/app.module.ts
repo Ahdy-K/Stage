@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MakeofferComponent } from './entreprise/components/makeoffer/makeoffer.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { AuthInterceptor } from './auth.intercepter';
 
 
 
@@ -49,7 +50,13 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
   ],
 
-  providers: [],
+  providers: [
+   {
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+   }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

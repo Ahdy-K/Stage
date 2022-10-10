@@ -19,9 +19,9 @@ import java.security.Principal;
 
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RequestMapping("/api-entreprise")
+@CrossOrigin(origins = "*")
 public class entrepriseController {
     private final EntrepriseService entrepriseService;
     private final RestTemplate restTemplate;
@@ -93,24 +93,31 @@ public class entrepriseController {
         ResponseEntity<?> responseEntity = restTemplate.
                 postForEntity("http://localhost:9099/offers/makeoffer/{enterpriseId}", offer,Object.class,enterpriseId);
 
-        return responseEntity;
+        return  ResponseEntity.ok().body(responseEntity.getBody());
 
     }
 
-   /* @GetMapping("/offer/{id}")
-    public ResponseEntity<?> getOffer(@PathVariable Long id){
-        Offer offer=entrepriseService.getOffer(id);
-        if(offer!=null)
-            return  ResponseEntity.ok().body(offer);
-        else
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Offer Not Found");
-    }
+    @GetMapping("/offers2")
+    public String get(){
 
+        return  "hello rani nekhdem";
+    }
     @GetMapping("/offers")
     public ResponseEntity<?> getOffers(){
-        return  ResponseEntity.ok().body(entrepriseService.getOffers());
-    }
+        Object p=SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if(p instanceof UserDetails){
+            username=((UserDetails)p).getUsername();
+        }else{
+            username = p.toString();
 
+        }
+        Entreprise entreprise=entrepriseService.getEntrepriseByEmail(username);
+        Long enterpriseId=entreprise.getId();
+        ResponseEntity<?> responseEntity = restTemplate.getForEntity("http://localhost:9099/offers//entrepriseoffer/{entrepriseid}",Object.class,enterpriseId);
+        return  ResponseEntity.ok().body(responseEntity.getBody());
+    }
+/*
     @PostMapping("/deleteOffer/{id}")
     public ResponseEntity<?> deleteOffer(@PathVariable Long id) {
 
@@ -122,6 +129,28 @@ public class entrepriseController {
             return ResponseEntity.notFound().build();
         }
     }
+/*
+    @GetMapping("/offer/{id}")
+
+    public ResponseEntity<?> getOffer(@PathVariable Long id){
+        Object p=SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if(p instanceof UserDetails){
+            username=((UserDetails)p).getUsername();
+        }else{
+            username = p.toString();
+
+        }
+        Entreprise entreprise=entrepriseService.getEntrepriseByEmail(username);
+        Long enterpriseId=entreprise.getId();
+        Offer offer=entrepriseService.getOffer(id);
+        if(offer!=null)
+            return  ResponseEntity.ok().body(offer);
+        else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Offer Not Found");
+    }
+/*
+
 
 
     @PutMapping("/updateOffer/{id}")

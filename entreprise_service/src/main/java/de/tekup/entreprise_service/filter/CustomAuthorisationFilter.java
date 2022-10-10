@@ -21,6 +21,7 @@ import java.io.IOException;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @Slf4j
+@CrossOrigin(origins ="*")
 public class CustomAuthorisationFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -37,7 +38,6 @@ public class CustomAuthorisationFilter extends OncePerRequestFilter {
     @Override
     @CrossOrigin(origins ="*")
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
 
             String authorizationHeader=request.getHeader(AUTHORIZATION);
 

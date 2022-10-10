@@ -12,12 +12,12 @@ export class OfferService {
 
 
   makeOffer(form: any): Observable<any> {
-    let httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json','Accept':'application/json', 'Authorization': `Bearer ${window.localStorage.getItem('token')}` })
-    };
-    console.log(window.localStorage.getItem('token'))
-
     return this.http.post('http://localhost:8081/api-entreprise/makeoffer', form)
+
+  }
+  getOffers(): Observable<any> {
+
+    return this.http.get('http://localhost:8081/api-entreprise/offers')
 
   }
 }

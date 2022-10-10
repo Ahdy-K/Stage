@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/offers")
+@CrossOrigin(origins = "*")
 public class OfferController {
     @Autowired
     private OfferService offerService;
