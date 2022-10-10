@@ -8,6 +8,9 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './user/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+
+import { ListofferComponent } from './offre/components/listoffer/listoffer.component';
+
 import { LoginComponent } from './shared/components/login/login.component';
 import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,8 +18,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MakeofferComponent } from './entreprise/components/makeoffer/makeoffer.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AuthInterceptor } from './auth.intercepter';
-
-
 
 
 
@@ -38,13 +39,14 @@ import { AuthInterceptor } from './auth.intercepter';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxMatSelectSearchModule,
     
+     
+
+    NgxMatSelectSearchModule,
+
     
    
     BrowserAnimationsModule,MatDialogModule
-
-
 
 
 
