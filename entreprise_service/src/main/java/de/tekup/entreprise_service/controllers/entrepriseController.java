@@ -114,7 +114,14 @@ public class entrepriseController {
         }
         Entreprise entreprise=entrepriseService.getEntrepriseByEmail(username);
         Long enterpriseId=entreprise.getId();
-        ResponseEntity<?> responseEntity = restTemplate.getForEntity("http://localhost:9099/offers//entrepriseoffer/{entrepriseid}",Object.class,enterpriseId);
+        ResponseEntity<?> responseEntity = restTemplate.getForEntity("http://localhost:9099/offers/entrepriseoffer/{entrepriseid}",Object.class,enterpriseId);
+        return  ResponseEntity.ok().body(responseEntity.getBody());
+    }
+
+
+    @GetMapping("/offer/{id}")
+    public ResponseEntity<?> getOffer(@PathVariable Long id){
+        ResponseEntity<?> responseEntity = restTemplate.getForEntity("http://localhost:9099/offers/offer/{id}",Object.class,id);
         return  ResponseEntity.ok().body(responseEntity.getBody());
     }
 /*

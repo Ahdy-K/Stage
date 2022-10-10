@@ -8,6 +8,8 @@ import { ListofferComponent } from './offre/components/listoffer/listoffer.compo
 import { DashboardComponent } from './user/components/dashboard/dashboard.component';
 
 import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
+import { ListUserComponent } from './user/components/list-user/list-user.component';
+import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: '', component: IndexComponent},
   
-  {path: 'myoffers', component: MyoffersComponent}
+  {path: 'myoffers', component: MyoffersComponent},
+  {path: 'listUser', component: ListUserComponent},
+  {path: 'details', component: DetailsOfferComponent}
   
 ];
 

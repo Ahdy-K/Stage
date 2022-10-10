@@ -18,6 +18,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MakeofferComponent } from './entreprise/components/makeoffer/makeoffer.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AuthInterceptor } from './auth.intercepter';
+import { ListUserComponent } from './user/components/list-user/list-user.component';
+import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
 
 
 
@@ -30,6 +32,8 @@ import { AuthInterceptor } from './auth.intercepter';
     LoginComponent,
     MyoffersComponent,
     MakeofferComponent,
+    ListUserComponent,
+    DetailsOfferComponent
     
     
 

@@ -4,6 +4,7 @@ import { SignupComponent } from './components/signup/signup.component';
 
 import { FormsModule } from '@angular/forms';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { DetailsOfferComponent } from './components/details-offer/details-offer.component';
 
 
 
@@ -12,6 +13,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
   declarations: [
     SignupComponent,
+  
   ],
   imports: [
     CommonModule,
