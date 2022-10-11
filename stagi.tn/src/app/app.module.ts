@@ -8,6 +8,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './user/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { CvComponent } from './cv/cv.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 import { ListofferComponent } from './offre/components/listoffer/listoffer.component';
 
@@ -31,6 +33,7 @@ import { DetailsComponent } from './offre/components/details/details.component';
     HeaderComponent,
     FooterComponent,
     SignupComponent,
+
     LoginComponent,
     MyoffersComponent,
     MakeofferComponent,
@@ -42,6 +45,9 @@ import { DetailsComponent } from './offre/components/details/details.component';
     DetailsComponent
     
     
+
+    CvComponent,
+    UserprofileComponent
 
   ],
   imports: [
