@@ -20,6 +20,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AuthInterceptor } from './auth.intercepter';
 import { ListUserComponent } from './user/components/list-user/list-user.component';
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
+import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
+import { DetailsComponent } from './offre/components/details/details.component';
 
 
 
@@ -33,7 +35,11 @@ import { DetailsOfferComponent } from './entreprise/components/details-offer/det
     MyoffersComponent,
     MakeofferComponent,
     ListUserComponent,
-    DetailsOfferComponent
+    ListofferComponent,
+    DetailsOfferComponent,
+    ListEntreprisesComponent,
+    DetailsOfferComponent,
+    DetailsComponent
     
     
 
@@ -43,6 +49,7 @@ import { DetailsOfferComponent } from './entreprise/components/details-offer/det
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    
     
      
 

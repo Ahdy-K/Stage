@@ -8,23 +8,59 @@ import { OffreService } from '../../services/offre.service';
 })
 export class ListofferComponent implements OnInit {
 
-  constructor(private offreService:OffreService) { }
+  constructor(private offreService: OffreService) { }
 
   ngOnInit(): void {
+    this.getoffers()
+    this.getentreprises()
   }
 
-  getoffers():void
-  {
-   this.offreService.getoffers().subscribe(
-    data =>{console.log(data);
-    },
-    error => {
-      console.log(error)
-    }
-   )
+  ListOffers: any
+  ListEntreprises:any
+
+  //get All Offers
+  getoffers(): void {
+    this.offreService.getoffers().subscribe(
+      data => {
+        this.ListOffers = data
+        console.log(data)
+      },
+      error => {
+        console.log(error)
+      }
+    )
 
 
   }
+  //get entreprises by Id
+  getentreprise(id: number): void {
+    this.offreService.getEntrepriseById(id).subscribe(
+      data => {
+        console.log(data);
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+
+
+  }
+  //get all entreprisese
+  getentreprises(): void {
+    this.offreService.getEntreprises().subscribe(
+      data => {
+        this.ListEntreprises=data
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+
+
+  }
+
 
 
 }

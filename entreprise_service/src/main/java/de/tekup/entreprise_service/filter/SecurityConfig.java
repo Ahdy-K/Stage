@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeRequests().antMatchers("/**","/api-entreprise/get-entreprise/**","/auth/**").permitAll()
+                .authorizeRequests().antMatchers("/**","/api-entreprise/**","/auth/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(new CustomAuthorisationFilter(jwtUtil, entrepriseService), UsernamePasswordAuthenticationFilter.class);

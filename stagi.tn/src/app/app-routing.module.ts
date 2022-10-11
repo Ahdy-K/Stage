@@ -10,6 +10,8 @@ import { DashboardComponent } from './user/components/dashboard/dashboard.compon
 import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
 import { ListUserComponent } from './user/components/list-user/list-user.component';
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
+import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
+import { DetailsComponent } from './offre/components/details/details.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,10 @@ const routes: Routes = [
   
   {path: 'myoffers', component: MyoffersComponent},
   {path: 'listUser', component: ListUserComponent},
-  {path: 'details', component: DetailsOfferComponent}
+  {path: 'details', component: DetailsOfferComponent},
+  {path: 'listEntreprises', component: ListEntreprisesComponent},
+  
+  {path: 'detailsOffer', component: DetailsComponent}
   
 ];
 

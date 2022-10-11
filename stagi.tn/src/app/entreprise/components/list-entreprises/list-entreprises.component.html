@@ -1,0 +1,41 @@
+<section class="featured-job-area">
+    <div class="container">
+
+        <!-- single-job-content -->
+        <div *ngFor="let l of ListEntreprises "  class="single-job-items mb-30">
+            <div class="job-items">
+                <div class="company-img">
+                    <a href="#"><img src="assets/img/icon/job-list3.png" alt=""></a>
+                </div>
+                <div class="job-tittle job-tittle2">
+                    <a >
+                        <h4 >{{l.name}}</h4>
+                    </a>
+
+                    <ul>
+                        <li></li>
+                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                        <li>$3500 - $4000</li>
+
+                    </ul>
+                    <p >
+                        <b class="badge">{{l.email}}</b>
+
+
+                    </p>
+                    <p style="margin: 20;">{{l.description |slice : 0:110}} ...</p>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="items-link items-link2 f-right">
+                <a href="job_details.html">{{l.status}}</a>
+                
+            </div>
+        </div>
+
+    </div>
+</section>

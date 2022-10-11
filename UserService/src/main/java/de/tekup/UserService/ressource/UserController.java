@@ -55,10 +55,12 @@ public class UserController {
         return this.userService.deleteUser(userId);
     }
 
-    @GetMapping("/offers")
-    public List<Object> getOffers() {
-        Object[] objects = restTemplate.getForObject("http://entreprise-service/api-entreprise/entreprises", Object[].class);
-        return Arrays.asList(objects);
+
+
+    @GetMapping("/getEntreprises")
+    public ResponseEntity<?> getEntreprises() {
+        Object objects = restTemplate.getForObject("http://entreprise-service/api-entreprise/entreprises", Object.class);
+        return ResponseEntity.ok().body(objects);
     }
 
 }
