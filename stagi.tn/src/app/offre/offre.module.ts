@@ -8,16 +8,19 @@ import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
-   
+    ListofferComponent
+
+
   ],
   imports: [
     CommonModule
   ],
-  exports :[
+  exports: [
+    ListofferComponent
 
-    
+
 
   ],
- 
+
 })
 export class OffreModule { }

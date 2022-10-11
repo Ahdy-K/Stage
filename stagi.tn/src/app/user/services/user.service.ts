@@ -9,9 +9,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
 
-  constructor(private http:HttpClient) {
-
-   }
+  
 
    addUser(form:any):Observable<any>
    {
@@ -24,9 +22,7 @@ export class UserService {
     return this.http.get("http://localhost:9090/api-user/all")
    }
 
-  addUser(form: any): Observable<any> {
-    return this.http.post('http://localhost:9090/api-user/add/user', form);
-  }
+  
   getUser(id: any): Observable<any> {
     return this.http.get('http://localhost:9090/api-user/add/user/' + id);
   }

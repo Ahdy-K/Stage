@@ -13,6 +13,8 @@ import { ListUserComponent } from './user/components/list-user/list-user.compone
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
 import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
 import { DetailsComponent } from './offre/components/details/details.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { CvComponent } from './cv/cv.component';
 
 
 const routes: Routes = [
@@ -29,18 +31,15 @@ const routes: Routes = [
   {path: 'details', component: DetailsOfferComponent},
   {path: 'listEntreprises', component: ListEntreprisesComponent},
   
-  {path: 'detailsOffer', component: DetailsComponent}
+  {path: 'detailsOffer', component: DetailsComponent},
+  { path: 'addcv', component: CvComponent },
+  
+  {path: 'userprofile/:id', component: UserprofileComponent}
   
 
-import { CvComponent } from './cv/cv.component';
-import { UserprofileComponent } from './userprofile/userprofile.component';
-const routes: Routes = [
-  { path: 'us-signup', component: SignupComponent },
-  { path: 'en-signup', component: EnSignupComponent },
-  { path: 'log-in', component: LoginComponent },
-  { path: '', component: IndexComponent },
-  { path: 'addcv', component: CvComponent },
-  { path: 'updatecv/:id', component: UserprofileComponent },
+
+
+  
 ];
 
 @NgModule({

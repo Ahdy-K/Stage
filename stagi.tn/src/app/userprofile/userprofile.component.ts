@@ -25,7 +25,7 @@ export class UserprofileComponent implements OnInit {
       },
     });
   }
-  onSubmit(valueForm) {
+  onSubmit(valueForm:any) {
     valueForm.keywords = valueForm.keywords.split(',');
     this.userService.updateUser(valueForm, this.userId).subscribe(
       (data) => {

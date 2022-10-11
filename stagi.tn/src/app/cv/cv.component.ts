@@ -10,21 +10,24 @@ import { CVService } from './cv.service';
 })
 export class CvComponent implements OnInit {
   constructor(private cvservice: CVService) {}
+  ngOnInit(): void {
+    
+  }
 
-  addcv(cv: any): void {
+  /*addcv(cv: any): void {
     let formData = new FormData();
     formData.append('file', cv.file);
     if (formData) {
       this.cvservice.addCv(formData).subscribe(
-        (datacv) => {
+        (datacv:any) => {
           console.log('dataCV:::', datacv);
         },
-        (err) => {
+        (err:any) => {
           console.log(err);
         }
       );
     }
-  }
+  }*/
 
   // selectedFiles?: FileList;
   // currentFile?: File;

@@ -24,6 +24,7 @@ import { ListUserComponent } from './user/components/list-user/list-user.compone
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
 import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
 import { DetailsComponent } from './offre/components/details/details.component';
+import { DashboardComponent } from './user/components/dashboard/dashboard.component';
 
 
 
@@ -38,16 +39,16 @@ import { DetailsComponent } from './offre/components/details/details.component';
     MyoffersComponent,
     MakeofferComponent,
     ListUserComponent,
-    ListofferComponent,
     DetailsOfferComponent,
     ListEntreprisesComponent,
     DetailsOfferComponent,
-    DetailsComponent
-    
-    
-
+    DetailsComponent,
+    DashboardComponent,
     CvComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    ListofferComponent
+  
+    
 
   ],
   imports: [
@@ -55,16 +56,10 @@ import { DetailsComponent } from './offre/components/details/details.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    
-    
-     
-
     NgxMatSelectSearchModule,
-
+    BrowserAnimationsModule,
+    MatDialogModule,
     
-   
-    BrowserAnimationsModule,MatDialogModule
-
 
 
   ],
