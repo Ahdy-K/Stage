@@ -12,7 +12,8 @@ import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.com
 import { ListUserComponent } from './user/components/list-user/list-user.component';
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
 import { CvComponent } from './cv/cv.component';
-import { UserprofileComponent } from './userprofile/userprofile.component';
+import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
+//import { UserprofileComponent } from './user/userprofile/userprofile.component';
 
 const routes: Routes = [
   { path: 'us-signup', component: SignupComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'addcv', component: CvComponent },
   { path: 'userprofile/:id', component: UserprofileComponent },
+  { path: 'user/dashboard/:id', component: DashboardComponent },
 ];
 
 @NgModule({
