@@ -1,7 +1,7 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserService } from '../user/services/user.service';
+//import { UserService } from '../user/services/user.service';
 import { CVService } from './cv.service';
 
 @Component({
@@ -10,66 +10,79 @@ import { CVService } from './cv.service';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent implements OnInit {
-  constructor(private cvservice: UserService) {}
-  ngOnInit(): void {}
-  addcv(value: any): void {
-    // let formData = new FormData();
-    // formData.append('file', value.file);
-    // console.log('FILE///', value);
-    // console.log('FORMDAT', formData);
-    // console.log('Value///', value);
-    // if (formData) {
-    //   this.cvservice.addCv(formData).subscribe(
-    //     (datacv: any) => {
-    //       console.log('dataCV:::', datacv);
-    //     },
-    //     (err: any) => {
-    //       console.log(err);
-    //     }
-    //   );
-    // }
+  myFile: any;
+  fileInput: any;
 
-    var formData = new FormData();
-    formData.append('file', value.file.files[0]);
-    console.log('FILE///', value.file);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:9090/api-user/cv/upload', true);
-    xhr.send(formData);
-    console.log('File uploaded');
+  constructor(private cvservice: CVService) {}
+  ngOnInit(): void {}
+  fileChange(element: any) {
+    console.log(element);
+    this.myFile = element.target.files[0];
+    this.fileInput = this.myFile.name;
+    console.log(this.myFile);
   }
 
-  // selectedFiles?: FileList;
-  // currentFile?: File;
-  // progress = 0;
-  // message = '';
-  // fileInfos?: Observable<any>;
-  // constructor(private uploadService: UploadFileService) {}
-  // ngOnInit(): void {
-  //   this.fileInfos = this.uploadService.getFiles();
-  // }
-  // selectFile(event:any) {
-  //   this.selectedFiles = event.target.files;
-  // }
-
-  // upload() {
-  //   this.progress = 0;
-  //   this.currentFile = this.selectedFiles.item(0);
-  //   this.uploadService.upload(this.currentFile).subscribe(
-  //     (event) => {
-  //       if (event.type === HttpEventType.UploadProgress) {
-  //         this.progress = Math.round((100 * event.loaded) / event.total);
-  //       } else if (event instanceof HttpResponse) {
-  //         this.message = event.body.message;
-  //         this.fileInfos = this.uploadService.getFiles();
-  //       }
-  //     },
-  //     (err:any) => {
-  //       this.progress = 0;
-  //       this.message = 'Could not upload the file!';
-  //       this.currentFile = undefined;
-  //     }
-  //   );
-
-  //   this.selectedFiles = undefined;
-  // }
+  addcv(value: any): void {
+    let dafile = new FormData();
+    dafile.append('file', this.myFile);
+    console.log('DAFILE//', dafile);
+    this.cvservice.addCv(dafile).subscribe({
+      next: (data: any) => {
+        console.log('DATA:::', data);
+        console.log('FILEINPut//:', this.fileInput);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
 }
+// import { Component } from '@angular/core';
+// import { HttpResponse, HttpEventType } from '@angular/common/http';
+// import { UploadFileService } from './file.service';
+
+// @Component({
+//   selector: 'app-cv',
+//   templateUrl: './cv.component.html',
+//   styleUrls: ['./cv.component.css'],
+// })
+// export class CvComponent {
+//   title = 'File-Upload-Save';
+//   selectedFiles: any;
+//   currentFileUpload: any;
+//   progress: { percentage: number } = { percentage: 0 };
+//   selectedFile: any;
+//   changeImage = false;
+//   constructor(private uploadService: UploadFileService) {}
+//   // downloadFile() {
+//   //   const link = document.createElement('a');
+//   //   link.setAttribute('target', '_blank');
+//   //   link.setAttribute('href', '_File_Saved_Path');
+//   //   link.setAttribute('download', 'file_name.pdf');
+//   //   document.body.appendChild(link);
+//   //   link.click();
+//   //   link.remove();
+//   // }
+//   change($event: any) {
+//     this.changeImage = true;
+//   }
+//   changedImage(event: any) {
+//     this.selectedFile = event.target.files[0];
+//   }
+//   upload() {
+//     this.progress.percentage = 0;
+//     this.currentFileUpload = this.selectedFiles.item(0);
+//     this.uploadService
+//       .pushFileToStorage(this.currentFileUpload)
+//       .subscribe((event) => {
+//         if (event.type === HttpEventType.UploadProgress) {
+//           this.progress.percentage = Math.round((100 * event.loaded) / 100);
+//         } else if (event instanceof HttpResponse) {
+//           alert('File Successfully Uploaded');
+//         }
+//         this.selectedFiles = undefined;
+//       });
+//   }
+//   selectFile(event: any) {
+//     this.selectedFiles = event.target.files;
+//   }

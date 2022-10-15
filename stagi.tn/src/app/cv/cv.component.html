@@ -1,12 +1,19 @@
 <h1>Upload your CV here</h1>
 <form #f="ngForm" (ngSubmit)="addcv(f.value)" class="form-contact contact_form">
-  <label for="file">CV :</label>
-  <input ngModule type="file" ngModel name="file" id="file" />
+  <!-- <label for="file">CV :</label>
+  <input ngModule type="file" ngModel name="file" id="file" /> -->
+  <input
+    type="file"
+    class="custom-file-input"
+    id="path"
+    (change)="fileChange($event)"
+  />
+  <label class="custom-file-label">{{ fileInput }}</label>
+
   <button type="submit" class="button button-contactForm boxed-btn">
     ADD CV
   </button>
 </form>
-
 <!-- <div *ngIf="currentFile" class="progress">
   <div
     class="progress-bar progress-bar-info progress-bar-striped"
@@ -41,3 +48,8 @@
     </li>
   </ul>
 </div> -->
+<!-- <h1>Upload and Download File</h1>
+<input type="file" id="customFile" (change)="selectFile($event)" />
+<button class="btn btn-primary" [disabled]="!selectedFiles" (click)="upload()">
+  Save File
+</button> -->
