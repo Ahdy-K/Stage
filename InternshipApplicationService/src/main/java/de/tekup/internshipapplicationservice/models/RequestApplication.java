@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.File;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
@@ -24,9 +25,5 @@ public class RequestApplication {
     @ManyToOne
     private Offer offer;
 
-    private File cv ;
-
-    private File motivation_letter;
-
-    private LocalDate date;
+    private Date date;
 }

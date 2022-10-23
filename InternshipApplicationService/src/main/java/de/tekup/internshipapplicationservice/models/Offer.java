@@ -26,6 +26,8 @@ public class Offer {
     private Long entrepriseId;
     @ElementCollection
     private List<String> technologies=new ArrayList<>();
+    @ElementCollection
+    private List<String> skills=new ArrayList<>();
     private String type;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate begin_date;

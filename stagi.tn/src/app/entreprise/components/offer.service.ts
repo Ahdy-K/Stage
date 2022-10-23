@@ -25,4 +25,12 @@ export class OfferService {
     return this.http.get('http://localhost:8081/api-entreprise/offer/' + id)
 
   }
+  getrequestPerOffer(id:number): Observable<any> {
+
+    return this.http.get('http://localhost:8081/api-entreprise/getRequestByOffer/' + id)
+
+  }
+  getUser(id: any): Observable<any> {
+    return this.http.get('http://localhost:9090/api-user/get/' + id);
+  }
 }

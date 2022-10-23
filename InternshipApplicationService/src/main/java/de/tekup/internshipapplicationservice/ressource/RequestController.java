@@ -21,11 +21,9 @@ public class RequestController {
         this.requestService = requestService;
     }
 
-    @PostMapping("/makerequest/{offerId}")
-    public void makeRequest(@PathVariable("offerId") Long offerId,@RequestBody RequestApplication request) {
-        requestService.makeRequest(offerId,request);
-
-
+    @PostMapping("/makerequest/{offerId}/{userId}")
+    public void makeRequest(@PathVariable("offerId") Long offerId,  @PathVariable("userId") Long userId) {
+        requestService.makeRequest(offerId,userId);
     }
 
 
@@ -43,11 +41,11 @@ public class RequestController {
         return requestService.getRequestById(id);
     }
 
-    @PutMapping("/update/{requestId}")
+   /* @PutMapping("/update/{requestId}")
     public RequestApplication updateRequest(@PathVariable("requestId") Long requestId ,@RequestBody RequestApplication newRequest) {
         return  requestService.updateRequest(requestId,newRequest);
 
-    }
+    }*/
 
 
     @DeleteMapping("/delete/{id}")

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.security.Principal;
+import java.util.List;
 
 
 @RestController
@@ -109,11 +110,7 @@ public class entrepriseController {
 
     }
 
-    @GetMapping("/offers2")
-    public String get(){
 
-        return  "hello rani nekhdem";
-    }
     @GetMapping("/offers")
     public ResponseEntity<?> getOffers(){
         Object p=SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -127,6 +124,11 @@ public class entrepriseController {
         Entreprise entreprise=entrepriseService.getEntrepriseByEmail(username);
         Long enterpriseId=entreprise.getId();
         ResponseEntity<?> responseEntity = restTemplate.getForEntity("http://localhost:9099/offers/entrepriseoffer/{entrepriseid}",Object.class,enterpriseId);
+        return  ResponseEntity.ok().body(responseEntity.getBody());
+    }
+    @GetMapping("/getRequestByOffer/{offerid}")
+    public ResponseEntity<?> getRequestByOffer(@PathVariable("offerid") Long offerid){
+        ResponseEntity<?> responseEntity = restTemplate.getForEntity("http://localhost:9099/request/getRequestByOffer/{offerid}",Object.class,offerid);
         return  ResponseEntity.ok().body(responseEntity.getBody());
     }
 

@@ -14,53 +14,62 @@
                 </div>
             </div>
         </div>
-        <div *ngFor="let offer of ListOffers " class="row justify-content-center" (click)="openUpdateDialog('3000','1000',offer.id)" >
+        <div *ngFor="let offer of ListOffers " class="row justify-content-center"  >
             <div class="col-xl-10">
                 <!-- single-job-content -->
-                <div  class="single-job-items mb-30">
-                    <div class="job-items">
+                <div class="single-job-items mb-30">
+                    <div class="job-items" [routerLink]="['/requests',offer.id]">
                         <div class="company-img">
-                            <a href="job_details.html"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                            <img src="assets/img/icon/job-list2.png" alt="">
+
                         </div>
                         <div class="job-tittle">
-                            <a href="job_details.html">
-                                <h4></h4>
-                            </a>
-                           
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">{{offer.subject}}</th>
+                                    </tr>
+                                </thead>
+                                <p >
+                                    <b *ngFor="let tech of offer.technologies"class="badge">{{tech}}</b>
+
+
+                                </p>
                             
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">{{offer.subject}}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody *ngFor="let tech of offer.technologies">
-                                        <tr >
-                                            {{tech}}
-                                            
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                
-                           
+                            </table>
+
+                            <span>from {{offer.begin_date}} to {{offer.end_date}}</span>
                             <ul>
+                                <br>
                                 <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                                
 
                             </ul>
                         </div>
                     </div>
                     <div class="items-link f-right">
-                        <a href="job_details.html">{{offer.type}}</a>
-                        <span>{{offer.begin_date}} to {{offer.end_date}}</span>
-                        <a class="btn btn-danger" >Delete</a>
+                        <a >{{offer.type}}</a>
                         
+                        <div>
+                            <div style="margin-top: 20%;">
+                                <a><i style="color:red; " class="fa fa-trash"></i></a>
+                                
+                            </div>
+                            <div style="margin-top: 20%;" (click)="openUpdateDialog('3000','1000',offer.id)">
+                                <a><i style="color:green; " class="fa fa-edit"></i></a>
+                                
+                            </div>
+                            
+                        </div>
+
                     </div>
-                   
+
                 </div>
 
 
 
             </div>
+
         </div>
     </div>
 </section>

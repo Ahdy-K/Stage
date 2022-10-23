@@ -17,10 +17,22 @@ export class OffreService {
    return this.http.get('http://localhost:9099/offers/alloffers')
 
   }
+  getofferById(id:number):Observable<any>
+  {
+
+   return this.http.get('http://localhost:9099/offers/offer/'+id)
+
+  }
   getEntrepriseById(id:number):Observable<any>
   {
 
-   return this.http.get('http://localhost:8081/api-entreprise/get-entreprise-by-id'+id)
+   return this.http.get('http://localhost:8081/api-entreprise/get-entreprise-by-id/'+id)
+
+  }
+  getEntrepriseByIdAsUser(id:number):Observable<any>
+  {
+
+   return this.http.get('http://localhost:9090/api-user/getEntreprise/'+id)
 
   }
   getEntreprises():Observable<any>
@@ -28,5 +40,15 @@ export class OffreService {
 
    return this.http.get('http://localhost:9090/api-user/getEntreprises')
 
+  }
+  makerequest(offerid:number,userid:number):Observable<any>
+  {
+    return  this.http.post('http://localhost:9090/api-user/makerequest/'+offerid+'/'+userid,null)
+
+  }
+
+  getCurrentuser(username:string):Observable<any>
+  {
+    return this.http.get('http://localhost:9090/api-user/get-user/'+username);
   }
 }

@@ -10,6 +10,7 @@ import { OfferService } from '../offer.service';
   styleUrls: ['./myoffers.component.css']
 })
 export class MyoffersComponent implements OnInit {
+  listRequest: any;
 
   constructor(public dialog: MatDialog, private offerservice: OfferService) { }
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class MyoffersComponent implements OnInit {
 
 
   }
+
   ListOffers: any
   getOffers() {
 
@@ -47,4 +49,20 @@ export class MyoffersComponent implements OnInit {
       }
     )
   }
-}
+  getRequestPerOffer(id:number){
+    return this.offerservice.getrequestPerOffer(id).subscribe({
+      next:(data) => {
+        console.log(data);
+        this.listRequest = data;
+      },
+      error:(error) => {
+        console.log(error)
+
+        {
+
+        }
+      }
+  })
+  }
+
+  }

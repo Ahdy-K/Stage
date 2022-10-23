@@ -15,6 +15,7 @@ import { ListEntreprisesComponent } from './entreprise/components/list-entrepris
 import { DetailsComponent } from './offre/components/details/details.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { CvComponent } from './cv/cv.component';
+import { RequestsComponent } from './entreprise/components/requests/requests.component';
 
 
 const routes: Routes = [
@@ -31,10 +32,11 @@ const routes: Routes = [
   {path: 'details', component: DetailsOfferComponent},
   {path: 'listEntreprises', component: ListEntreprisesComponent},
   
-  {path: 'detailsOffer', component: DetailsComponent},
+  {path: 'detailsOffer/:id', component: DetailsComponent},
   { path: 'addcv', component: CvComponent },
   
-  {path: 'userprofile/:id', component: UserprofileComponent}
+  {path: 'userprofile/:id', component: UserprofileComponent},
+  {path: 'requests/:id', component: RequestsComponent}
   
 
 

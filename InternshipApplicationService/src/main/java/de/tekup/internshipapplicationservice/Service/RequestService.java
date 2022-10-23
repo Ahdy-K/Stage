@@ -7,6 +7,8 @@ import de.tekup.internshipapplicationservice.models.RequestApplication;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,12 +18,18 @@ public class RequestService {
     private final OfferRepository offerRepository;
 
     //a user can make a request
-    public void makeRequest(Long offerId, RequestApplication request) {
+    public void makeRequest(Long offerId,Long userId) {
         Offer offer=offerRepository.findOfferById(offerId);
+        RequestApplication request=new RequestApplication();
         request.setOffer(offer);
+        request.setStatus(false);
+        Date date = new Date();
+        request.setDate(date);
+        request.setUser_id(userId);
         requestApplicationRepository.save(request);
 
     }
+
 
 
     //for admin only
@@ -37,15 +45,7 @@ public class RequestService {
     }
 
 
-    public RequestApplication updateRequest(Long requestId , RequestApplication newRequest) {
-        RequestApplication request =requestApplicationRepository.findRequestApplicationById(requestId);
-        if(newRequest.getCv()!=null)
-            request.setCv(newRequest.getCv());
-        if(newRequest.getMotivation_letter()!=null)
-            request.setMotivation_letter(newRequest.getMotivation_letter());
 
-        return requestApplicationRepository.save(request);
-    }
 
 
     public void deleteRequest(Long id) {

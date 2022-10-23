@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OffreService } from '../../services/offre.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { OffreService } from '../../services/offre.service';
 })
 export class ListofferComponent implements OnInit {
 
-  constructor(private offreService: OffreService) { }
+  constructor(private offreService: OffreService,private router: Router) { }
 
   ngOnInit(): void {
     this.getoffers()
@@ -58,6 +59,13 @@ export class ListofferComponent implements OnInit {
       }
     )
 
+
+  }
+  //get offer details
+  getOffersdetails(id:number):void{
+   
+        this.router.navigate(["detailsOffer/",id])
+   
 
   }
 

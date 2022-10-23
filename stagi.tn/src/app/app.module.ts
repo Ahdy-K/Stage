@@ -25,6 +25,7 @@ import { DetailsOfferComponent } from './entreprise/components/details-offer/det
 import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
 import { DetailsComponent } from './offre/components/details/details.component';
 import { DashboardComponent } from './user/components/dashboard/dashboard.component';
+import { RequestsComponent } from './entreprise/components/requests/requests.component';
 
 
 
@@ -46,7 +47,9 @@ import { DashboardComponent } from './user/components/dashboard/dashboard.compon
     DashboardComponent,
     CvComponent,
     UserprofileComponent,
-    ListofferComponent
+    ListofferComponent,
+    RequestsComponent
+
   
     
 
