@@ -43,10 +43,13 @@ public class FileStorageService {
                 throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
             }
             // set storage location with file name
-            //String newName = fileName.split(".");
-            if(userId.equals("image")){
+            // determining file type from userID
+            // important ADD CV Link to cv Field to only have one cv file and
+            // to make it easier to manage
+            /*if(userId.equals("image")){
                 fileName = "C:\\AK\\"+fileName;
-            }else fileName = "C:\\AK\\"+userId+".pdf";
+            }else fileName = "C:\\AK\\"+fileName;//+".pdf";*/
+            fileName="C:\\AK\\"+fileName;
             // Copy file to the target location (Replacing existing file with the same name)
             //Path targetLocation = this.fileStorageLocation.resolve(fileName);
             Path targetLocation = this.path.resolve(fileName);

@@ -54,9 +54,9 @@ public class User {
     private String address;
     //
     // attributes after account creation
-   /* @Column(name = "cv")
-    private File CV;
-    @Column(name = "urls")
+    @Column(name = "cv")
+    private String CV;
+   /* @Column(name = "urls")
     private HashMap<String, String> urls;
     @Column(name = "speciality")
     private String speciality;
