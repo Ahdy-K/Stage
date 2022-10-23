@@ -33,7 +33,7 @@ public class FileStorageService {
         }
     }
 */
-    public String storeFile(MultipartFile file) {
+    public String storeFile(MultipartFile file, String userId) {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -42,7 +42,11 @@ public class FileStorageService {
             if(fileName.contains("..")) {
                 throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
             }
-
+            // set storage location with file name
+            //String newName = fileName.split(".");
+            if(userId.equals("image")){
+                fileName = "C:\\AK\\"+fileName;
+            }else fileName = "C:\\AK\\"+userId+".pdf";
             // Copy file to the target location (Replacing existing file with the same name)
             //Path targetLocation = this.fileStorageLocation.resolve(fileName);
             Path targetLocation = this.path.resolve(fileName);

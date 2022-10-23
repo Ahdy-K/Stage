@@ -62,7 +62,7 @@ public class UserController {
 
     }
     // upload user CV
-    @PostMapping(value = "/cv/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    /*@PostMapping(value = "/cv/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     //@PostMapping("/cv/upload")
     public ResponseEntity<?> uploadCV( @RequestParam(name="file") MultipartFile file ) {
         System.out.println("FILE//::"+file);
@@ -75,7 +75,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
         return ResponseEntity.ok("File uploaded successfully.");
-    }
+    }*/
     @DeleteMapping("/delete/{userId}")
     public String  deleteUser(@PathVariable("userId") Long userId ){
         return this.userService.deleteUser(userId);
@@ -88,9 +88,9 @@ public class UserController {
     }
 
 
-    @PostMapping("/uploadFile")
-    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
-        String fileName = fileStorageService.storeFile(file);
+    @PostMapping("/uploadFile/{userId}")
+    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file, @PathVariable("userId") String userId) {
+        String fileName = fileStorageService.storeFile(file, userId);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")

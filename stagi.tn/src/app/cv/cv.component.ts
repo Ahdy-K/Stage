@@ -1,7 +1,4 @@
-import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-//import { UserService } from '../user/services/user.service';
 import { CVService } from './cv.service';
 
 @Component({
@@ -12,9 +9,12 @@ import { CVService } from './cv.service';
 export class CvComponent implements OnInit {
   myFile: any;
   fileInput: any;
-
+  userID: any;
   constructor(private cvservice: CVService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // a passer avec le fichier pour nommer le dossier de stockage
+    this.userID = localStorage.getItem('idUser');
+  }
   fileChange(element: any) {
     console.log(element);
     this.myFile = element.target.files[0];
@@ -26,7 +26,7 @@ export class CvComponent implements OnInit {
     let dafile = new FormData();
     dafile.append('file', this.myFile);
     console.log('DAFILE//', dafile);
-    this.cvservice.addCv(dafile).subscribe({
+    this.cvservice.addCv(dafile, this.userID).subscribe({
       next: (data: any) => {
         console.log('DATA:::', data);
         console.log('FILEINPut//:', this.fileInput);

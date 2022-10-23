@@ -8,8 +8,11 @@ import { Observable } from 'rxjs';
 export class CVService {
   constructor(private http: HttpClient) {}
 
-  addCv(file: any): Observable<any> {
-    return this.http.post('http://localhost:9090/api-user/uploadFile', file);
+  addCv(file: any, id: any): Observable<any> {
+    return this.http.post(
+      'http://localhost:9090/api-user/uploadFile/' + id,
+      file
+    );
   }
 
   // private baseUrl = 'http://localhost:9090/api-user/cv';
