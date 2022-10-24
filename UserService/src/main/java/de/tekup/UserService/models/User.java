@@ -10,6 +10,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.persistence.*;
 import java.io.File;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 // add entity annotation
 @Entity
@@ -19,7 +21,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -42,8 +44,6 @@ public class User {
     @Column(name = "dateOfBirth")
     @NotEmpty
     private Date DoB;
-    @Column(name = "cv")
-    private File CV;
 
 
     private String password;
@@ -52,6 +52,21 @@ public class User {
     @Column(name = "address")
     @NotEmpty(message = "Please provide your address")
     private String address;
-
+    //
+    // attributes after account creation
+    @Column(name = "cv")
+    private String CV;
+   /* @Column(name = "urls")
+    private HashMap<String, String> urls;
+    @Column(name = "speciality")
+    private String speciality;
+    @Column(name = "skills")
+    private List<String> skills;
+    @Column(name = "softSkills")
+    private List<String> softSkills;
+    @Column(name = "grade")
+    private String grade;
+    @Column(name = "intro")
+    private String intro;*/
 
 }

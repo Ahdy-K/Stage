@@ -23,11 +23,26 @@ export class UserService {
    }
 
   
-  getUser(id: any): Observable<any> {
-    return this.http.get('http://localhost:9090/api-user/get/user/' + id);
-  }
-  updateUser(form: any, id: any): Observable<any> {
-    return this.http.get('http://localhost:9090/api-user/add/' + id, form);
+ 
+ 
+  addCv(form: any): Observable<any> {
+    return this.http.post('http://localhost:9090/api-user/cv/upload', form);
   }
 
+
+
+  getUser(id: any): Observable<any> {
+    return this.http.get('http://localhost:9090/api-user/get/' + id);
+  }
+  updateUser(form: any, id: any): Observable<any> {
+    return this.http.put(
+      'http://localhost:9090/api-user/update/' + id,
+
+      form
+    );
+  }
+
+  getUserByEmail(email: string): Observable<any> {
+    return this.http.get('http://localhost:9090/api-user/get-user/' + email);
+  }
 }

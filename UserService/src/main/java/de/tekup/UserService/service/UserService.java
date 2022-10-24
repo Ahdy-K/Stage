@@ -24,9 +24,25 @@ public class UserService {
     public List<User> getUsers(){
         return this.userRepository.findAll();
     };
-    public User updateUser(User user){
-        return this.userRepository.save(user);
-    };
+    public User updateUser(Long id,User newUser){
+        //User newUser = this.userRepository.findUserByEmail(user.getEmail());
+        User user=userRepository.findOneById(id);
+        if(newUser.getLastName()!=null)
+            user.setLastName(newUser.getLastName());
+        if(newUser.getFirstName()!=null)
+            user.setFirstName(newUser.getFirstName());
+        if(newUser.getEmail()!=null)
+            user.setEmail(newUser.getEmail());
+        //if(newUser.getPassword()!=null)
+          //  user.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        if(newUser.getAddress()!=null)
+            user.setAddress(newUser.getAddress());
+
+        if(newUser.getPhone()!=null)
+            user.setPhone(newUser.getPhone());
+        return userRepository.save(user) ;
+    }
+
     public String deleteUser(Long id){
         User user = this.getUserById(id);
         if(user!=null){

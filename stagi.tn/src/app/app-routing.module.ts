@@ -13,12 +13,19 @@ import { ListUserComponent } from './user/components/list-user/list-user.compone
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
 import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
 import { DetailsComponent } from './offre/components/details/details.component';
-import { UserprofileComponent } from './userprofile/userprofile.component';
+
 import { CvComponent } from './cv/cv.component';
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
+import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
 
 
 const routes: Routes = [
+  { path: 'us-signup', component: SignupComponent },
+  { path: 'en-signup', component: EnSignupComponent },
+  { path: 'log-in', component: LoginComponent },
+  { path: 'offerlist', component: ListofferComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: IndexComponent },
 
   {path: 'us-signup', component: SignupComponent},
   {path: 'en-signup', component: EnSignupComponent},
@@ -36,12 +43,23 @@ const routes: Routes = [
   { path: 'addcv', component: CvComponent },
   
   {path: 'userprofile/:id', component: UserprofileComponent},
-  {path: 'requests/:id', component: RequestsComponent}
+  {path: 'requests/:id', component: RequestsComponent},
   
 
 
 
   
+  { path: 'myoffers', component: MyoffersComponent },
+  { path: 'listUser', component: ListUserComponent },
+  { path: 'details', component: DetailsOfferComponent },
+
+  { path: 'us-signup', component: SignupComponent },
+  { path: 'en-signup', component: EnSignupComponent },
+  { path: 'log-in', component: LoginComponent },
+  { path: '', component: IndexComponent },
+  { path: 'addcv', component: CvComponent },
+  { path: 'userprofile/:id', component: UserprofileComponent },
+  { path: 'user/dashboard/:id', component: DashboardComponent },
 ];
 
 @NgModule({
