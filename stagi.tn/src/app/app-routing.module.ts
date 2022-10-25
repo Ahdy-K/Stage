@@ -14,10 +14,9 @@ import { DetailsOfferComponent } from './entreprise/components/details-offer/det
 import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
 import { DetailsComponent } from './offre/components/details/details.component';
 
-import { CvComponent } from './cv/cv.component';
+import { CvComponent } from './user/components/cv/cv.component';
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
-
 
 const routes: Routes = [
   { path: 'us-signup', component: SignupComponent },
@@ -27,28 +26,24 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: '', component: IndexComponent },
 
-  {path: 'us-signup', component: SignupComponent},
-  {path: 'en-signup', component: EnSignupComponent},
-  {path: 'log-in', component: LoginComponent},
-  {path: 'offerlist', component: ListofferComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: '', component: IndexComponent},
-  
-  {path: 'myoffers', component: MyoffersComponent},
-  {path: 'listUser', component: ListUserComponent},
-  {path: 'details', component: DetailsOfferComponent},
-  {path: 'listEntreprises', component: ListEntreprisesComponent},
-  
-  {path: 'detailsOffer/:id', component: DetailsComponent},
+  { path: 'us-signup', component: SignupComponent },
+  { path: 'en-signup', component: EnSignupComponent },
+  { path: 'log-in', component: LoginComponent },
+  { path: 'offerlist', component: ListofferComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: IndexComponent },
+
+  { path: 'myoffers', component: MyoffersComponent },
+  { path: 'listUser', component: ListUserComponent },
+  { path: 'details', component: DetailsOfferComponent },
+  { path: 'listEntreprises', component: ListEntreprisesComponent },
+
+  { path: 'detailsOffer/:id', component: DetailsComponent },
   { path: 'addcv', component: CvComponent },
-  
-  {path: 'userprofile/:id', component: UserprofileComponent},
-  {path: 'requests/:id', component: RequestsComponent},
-  
 
+  { path: 'userprofile/:id', component: UserprofileComponent },
+  { path: 'requests/:id', component: RequestsComponent },
 
-
-  
   { path: 'myoffers', component: MyoffersComponent },
   { path: 'listUser', component: ListUserComponent },
   { path: 'details', component: DetailsOfferComponent },

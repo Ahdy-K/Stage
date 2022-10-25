@@ -1,6 +1,4 @@
 <header>
-
-
   <!-- Header Start -->
   <div class="header-area header-transparrent">
     <div class="headder-top header-sticky">
@@ -9,10 +7,12 @@
           <div class="col-lg-3 col-md-2">
             <!-- Logo -->
             <div class="logo">
-              <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+              <a href="index.html"
+                ><img src="assets/img/logo/logo.png" alt=""
+              /></a>
             </div>
           </div>
-          <div class="col-lg-9 col-md-9" *ngIf="Account=='VISITOR'">
+          <div class="col-lg-9 col-md-9" *ngIf="Account == 'VISITOR'">
             <div class="menu-wrapper">
               <!-- Main-menu -->
               <div class="main-menu">
@@ -22,7 +22,8 @@
                     <li><a routerLink="/us-signup">Espace Etudiant</a></li>
                     <li><a routerLink="/en-signup">Espace Entreprise</a></li>
 
-                    <li><a href="#">Page</a>
+                    <li>
+                      <a href="#">Page</a>
                       <ul class="submenu">
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="single-blog.html">Blog Details</a></li>
@@ -30,7 +31,6 @@
                         <li><a href="job_details.html">job Details</a></li>
                       </ul>
                     </li>
-
                   </ul>
                 </nav>
               </div>
@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-9 col-md-9" *ngIf="Account=='STUDENT'">
+          <div class="col-lg-9 col-md-9" *ngIf="Account == 'STUDENT'">
             <div class="menu-wrapper">
               <!-- Main-menu -->
               <div class="main-menu">
@@ -51,39 +51,39 @@
                     <li><a routerLink="/listEntreprises">Entreprises</a></li>
                     <li><a routerLink="/offerlist">Offers</a></li>
                     <li><a routerLink="/listEntreprises">Internships</a></li>
-
-
-
                   </ul>
-
                 </nav>
               </div>
               <div class="main-menu">
                 <nav class="d-none d-lg-block">
                   <ul id="navigation">
-
-                    <li><a href="#" class="navbar-brand ">
-                        <img width="40" height="40" class="rounded-circle" [src]="sanitizer.bypassSecurityTrustResourceUrl(ImageUrl)"></a>
-
-
+                    <li>
+                      <a class="navbar-brand">
+                        <img
+                          width="40"
+                          height="40"
+                          class="rounded-circle"
+                          src="{{ ImageUrl }}"
+                      /></a>
 
                       <ul class="submenu">
-                        <li><a routerLink="/home" (click)="logout()">Logout</a></li>
+                        <li>
+                          <a routerLink="/home" (click)="logout()">Logout</a>
+                        </li>
+                        <li>
+                          <a routerLink="/userprofile/" (click)="logout()"
+                            >Dashboard</a
+                          >
+                        </li>
                         <li><a href="single-blog.html">Profile</a></li>
                       </ul>
                     </li>
-
-
                   </ul>
-
                 </nav>
-
               </div>
-
-
             </div>
           </div>
-          <div class="col-lg-9 col-md-9" *ngIf="Account=='ENTREPRISE'">
+          <div class="col-lg-9 col-md-9" *ngIf="Account == 'ENTREPRISE'">
             <div class="menu-wrapper">
               <!-- Main-menu -->
               <div class="main-menu">
@@ -93,36 +93,31 @@
                     <li><a routerLink="/us-signup">Condidtures</a></li>
                     <li><a routerLink="/myoffers">My Offers</a></li>
                     <li><a routerLink="/listUser">Students</a></li>
-
-
-
                   </ul>
-
                 </nav>
               </div>
               <div class="main-menu">
                 <nav class="d-none d-lg-block">
                   <ul id="navigation">
-
-                    <li><a href="#" class="navbar-brand ">
-                        <img width="40" height="40" class="rounded-circle" src="https://placekitten.com/300/300"></a>
-
-
+                    <li>
+                      <a href="#" class="navbar-brand">
+                        <img
+                          width="40"
+                          height="40"
+                          class="rounded-circle"
+                          src="https://placekitten.com/300/300"
+                      /></a>
 
                       <ul class="submenu">
-                        <li><a routerLink="/home" (click)="logout()">Logout</a></li>
+                        <li>
+                          <a routerLink="/home" (click)="logout()">Logout</a>
+                        </li>
                         <li><a href="single-blog.html">Profile</a></li>
                       </ul>
                     </li>
-
-
                   </ul>
-
                 </nav>
-
               </div>
-
-
             </div>
           </div>
           <!-- Mobile Menu -->
@@ -137,8 +132,6 @@
       <div class="mobile_menu d-block d-lg-none"></div>
     </div>
   </div>
-
-
 
   <!-- Header End -->
 </header>

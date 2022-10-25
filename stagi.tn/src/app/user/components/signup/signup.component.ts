@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CVService } from 'src/app/cv/cv.service';
+import { CVService } from 'src/app/user/components/cv/cv.service';
 import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-signup',
