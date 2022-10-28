@@ -6,6 +6,7 @@ import de.tekup.UserService.models.MyFileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.core.io.support.ResourcePropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,6 +20,10 @@ import java.nio.file.StandardCopyOption;
 @Service
 public class FileStorageService {
     Path path = Paths.get("c:\\data\\");
+    //add file path to download from:
+    Path downloadPath = Paths.get("C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\stagi.tn\\src\\assets\\img\\pdp\\");
+    //private final Path fileStorageLocation;
+
     //private final Path fileStorageLocation;
 /*
     @Autowired
@@ -49,7 +54,8 @@ public class FileStorageService {
             /*if(userId.equals("image")){
                 fileName = "C:\\AK\\"+fileName;
             }else fileName = "C:\\AK\\"+fileName;//+".pdf";*/
-            fileName="C:\\Users\\boual\\Desktop\\Cii-3\\Projet Stagi\\stagi\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
+            //fileName="C:\\Users\\boual\\Desktop\\Cii-3\\Projet Stagi\\stagi\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
+            fileName = "C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
             // Copy file to the target location (Replacing existing file with the same name)
             //Path targetLocation = this.fileStorageLocation.resolve(fileName);
             Path targetLocation = this.path.resolve(fileName);
@@ -57,6 +63,44 @@ public class FileStorageService {
             return fileName;
         } catch (IOException ex) {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
+        }
+    }
+    // Delete the file:
+    public String deleteFile( String filepath) {
+        // Normalize file name
+        String fileName = filepath;
+
+        try {
+            // Check if the file's name contains invalid characters
+            if(fileName.contains("..")) {
+                throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
+            }
+
+            fileName = "C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
+
+            Path targetLocation = this.path.resolve(fileName);
+            Files.delete(targetLocation);
+            return fileName;
+        } catch (IOException ex) {
+            throw new FileStorageException("Could not find file " + fileName + ".these is the error", ex);
+        }
+    }
+
+    // Download a File:
+    public Resource loadFileAsResource(String fileName) {
+        try {
+            //Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+             Path filePath = this.downloadPath.resolve(fileName);
+            //Path filePath = this.path.resolve(fileName);
+            Resource resource = new UrlResource(filePath.toUri());
+            System.out.println("filePath: formLoadFile"+filePath.toString());
+            if(resource.exists()) {
+                return resource;
+            } else {
+                throw new MyFileNotFoundException("File not found " + fileName);
+            }
+        } catch (MalformedURLException ex) {
+            throw new MyFileNotFoundException("File not found " + fileName, ex);
         }
     }
 /*

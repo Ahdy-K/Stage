@@ -32,6 +32,7 @@ import { DashboardComponent } from './user/components/dashboard/dashboard.compon
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
 
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
+//import { ViewCVComponent } from './Stage/stagi.tn/src/app/user/components/view-cv/view-cv.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { UserprofileComponent } from './user/components/userprofile/userprofile.
 
     CvComponent,
     UserprofileComponent,
+    //ViewCVComponent,
   ],
   imports: [
     BrowserModule,

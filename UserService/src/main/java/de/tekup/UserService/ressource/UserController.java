@@ -2,24 +2,32 @@ package de.tekup.UserService.ressource;
 
 import de.tekup.UserService.models.User;
 import de.tekup.UserService.service.FileStorageService;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import de.tekup.UserService.service.UserService;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+///
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins="*")
@@ -63,30 +71,15 @@ public class UserController {
     }
 
     @PutMapping("/update/{userId}")
-    public Optional<User> updateUser(@PathVariable("userId") Long id,@RequestBody User user ){
+    public Optional<User> updateUser(@PathVariable("userId") Long id, @RequestBody User user ){
 
             return Optional.ofNullable(this.userService.updateUser(id,user));//}else
 
     }
 
-    // upload user CV
-    /*@PostMapping(value = "/cv/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    //@PostMapping("/cv/upload")
-    public ResponseEntity<?> uploadCV( @RequestParam(name="file") MultipartFile file ) {
-        System.out.println("FILE//::"+file);
-            String fileName = file.getName();
 
-        try {
-            // C:\\Users\\Asus\\Downloads\\Project Stagi\\Stage
-            file.transferTo(new File("C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\storage\\" + fileName));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-        return ResponseEntity.ok("File uploaded successfully.");
-<<<<<<< HEAD
-    }
 
-*/
+
     @DeleteMapping("/delete/{userId}")
     public String  deleteUser(@PathVariable("userId") Long userId ){
         return this.userService.deleteUser(userId);
@@ -133,6 +126,50 @@ public class UserController {
 
         return new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
+    }
+    @DeleteMapping("/cv/delete/{fileName}")
+    public String deleteFile(@PathVariable("fileName") String fileName){
+        return this.fileStorageService.deleteFile(fileName);
+    }
+    // Download File:
+    @SneakyThrows
+    @GetMapping("/downloadFile/{fileName}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {
+        // Load file as Resource
+        Resource resource = fileStorageService.loadFileAsResource(fileName);
+
+        // Try to determine file's content type
+        String contentType = null;
+        try {
+            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+        } catch (IOException ex) {
+            throw new IOException("Could not determine file type.");
+        }
+
+        // Fallback to the default content type if type could not be determined
+        if(contentType == null) {
+            contentType = "application/octet-stream";
+        }
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                .body(resource);
+    }
+// get url
+    /*@GetMapping("/downloadFiles/{fileName}/{userId}")
+    public String downloadCV(@PathVariable("fileName")String filename,@PathVariable("userId") Long userId){
+        User user = this.userService.getUserById(userId);
+        return user.getCV();
+    }*/
+    @GetMapping("/downloadF/{userId}")
+    public Map<String, String> downloadCV(@PathVariable("userId") Long userId){
+        User user = this.userService.getUserById(userId);
+        String url = user.getCV();
+        Map<String, String> map = new HashMap<>();
+        map.put("url", url);
+        //return ResponseEntity.ok().body(url);
+        return map;
     }
 
 

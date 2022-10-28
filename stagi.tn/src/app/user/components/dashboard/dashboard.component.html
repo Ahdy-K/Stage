@@ -87,9 +87,21 @@
                 <p class="mb-0">My Resume:</p>
               </div>
               <div class="col-sm-9">
-                <button class="btn btn-dark" (click)="downloadCVByUrl()">
-                  Download
+                <button class="btn btn-dark">
+                  <a href="{{ iframeData }}" target="_blank">View</a>
                 </button>
+                <!-- <iframe
+                  src="{{ testURL }}"
+                  width="700"
+                  height="1000"
+                  type="application/pdf"
+                ></iframe> -->
+                <!-- <object data="{{ testURL }}" type="application/pdf">
+                  <iframe src="{{ iframeData }}"></iframe>
+                </object> -->
+                <!-- <iframe src={{iframeData}} frameborder="0" height="100%" width="100%">
+                </iframe> -->
+                <!-- <a href="{{ iframeData }}">example</a> -->
               </div>
             </div>
             <hr />
