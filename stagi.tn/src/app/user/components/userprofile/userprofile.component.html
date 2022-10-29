@@ -5,7 +5,11 @@
         <h2 class="contact-title">Modifier votre Profil :</h2>
       </div>
       <div class="col-lg-8">
-        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="form-contact contact_form">
+        <form
+          #f="ngForm"
+          (ngSubmit)="onSubmit(f.value)"
+          class="form-contact contact_form"
+        >
           <div class="row">
             <div class="col-12">
               <div class="form-group">
@@ -66,6 +70,7 @@
                   name="image"
                   id="img"
                   type="file"
+                  (change)="imageChange($event)"
                 />
               </div>
             </div>
@@ -90,8 +95,10 @@
                   class="form-control form-control-g"
                   name="CV"
                   [(ngModel)]="user.CV"
+                  name="cv"
                   id="cv"
                   type="file"
+                  (change)="cvChange($event)"
                 />
               </div>
             </div>

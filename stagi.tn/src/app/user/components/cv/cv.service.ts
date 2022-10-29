@@ -14,6 +14,19 @@ export class CVService {
       file
     );
   }
+  downloadCV(fileName: String): Observable<any> {
+    return this.http.get(
+      'http://localhost:9090/api-user/downloadFile/' + fileName
+    );
+  }
+  downloadCVByUrl(filename: any, id: any): Observable<any> {
+    console.log('filename', filename);
+    console.log('id', id);
+    return this.http.get(
+      // 'http://localhost:9090/api-user/downloadFiles/' + filename + '/' + id
+      'http://localhost:9090/api-user/downloadF/' + id
+    );
+  }
 
   // private baseUrl = 'http://localhost:9090/api-user/cv';
 

@@ -12,7 +12,7 @@ import {
 } from '@angular/common/http';
 import { SignupComponent } from './user/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
-import { CvComponent } from './cv/cv.component';
+import { CvComponent } from './user/components/cv/cv.component';
 //import { UserprofileComponent } from './user/userprofile/userprofile.component';
 
 import { ListofferComponent } from './offre/components/listoffer/listoffer.component';
@@ -31,12 +31,10 @@ import { DetailsComponent } from './offre/components/details/details.component';
 import { DashboardComponent } from './user/components/dashboard/dashboard.component';
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
 
-
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ResumeComponent } from './resume/resume.component';
-
 
 
 @NgModule({
