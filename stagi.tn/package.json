@@ -21,6 +21,8 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@auth0/angular-jwt": "^5.1.0",
+    "ng2-pdf-viewer": "^9.1.2",
+    "ngx-extended-pdf-viewer": "^15.0.5",
     "ngx-mat-select-search": "^5.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

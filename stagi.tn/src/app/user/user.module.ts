@@ -7,6 +7,10 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
+
+
 
 
 
@@ -14,12 +18,17 @@ import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
   declarations: [
     
-    ListUserComponent
+    ListUserComponent,
+  
+          
 
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxExtendedPdfViewerModule,
+    
+    
   
   ]
 
