@@ -1,0 +1,52 @@
+<section style="padding: 50px;">
+    <div class="container">
+
+
+        <div *ngFor="let l of ListUser" class="row justify-content-center">
+            <div class="col-xl-10">
+                <!-- single-job-content -->
+                <div class="single-job-items mb-30">
+                    <div class="job-items">
+                        <div class="company-img">
+                            <a href="job_details.html"><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 150px;"
+                                alt="Avatar"></a>
+                        </div>
+                        <div class="job-tittle">
+                            <a href="job_details.html">
+                                <h4> {{l.firstName}} {{l.lastName}}</h4>
+                            </a>
+
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        {{l.email}}
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <ul>
+                                <li><i class="fas fa-map-marker-alt"></i>{{l.address}},Tunisie</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="items-link f-right">
+                        <a href="job_details.html">rfgtgt</a>
+                        <span>{{l.phone}}</span>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Entreprise {
 
     @Id
