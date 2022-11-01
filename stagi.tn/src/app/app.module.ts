@@ -36,6 +36,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ResumeComponent } from './resume/resume.component';
 
+//import { ViewCVComponent } from './Stage/stagi.tn/src/app/user/components/view-cv/view-cv.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ResumeComponent } from './resume/resume.component';
     UserprofileComponent,
     ResumeComponent,
     
+
   ],
   imports: [
     BrowserModule,

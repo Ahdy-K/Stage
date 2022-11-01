@@ -40,6 +40,10 @@ public class UserService {
 
         if(newUser.getPhone()!=null)
             user.setPhone(newUser.getPhone());
+        if(newUser.getCV()!=null)
+            user.setCV(newUser.getCV());
+        if(newUser.getImage()!=null)
+            user.setImage(newUser.getImage());
         return userRepository.save(user) ;
     }
 

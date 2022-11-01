@@ -7,9 +7,7 @@
           <div class="col-lg-3 col-md-2">
             <!-- Logo -->
             <div class="logo">
-              <a href="index.html"
-                ><img src="assets/img/logo/logo.png" alt=""
-              /></a>
+              <a href="index.html"><img src="assets/img/logo/logo.png" alt="" /></a>
             </div>
           </div>
           <div class="col-lg-9 col-md-9" *ngIf="Account == 'VISITOR'">
@@ -63,23 +61,16 @@
                   <ul id="navigation">
                     <li>
                       <a class="navbar-brand">
-                        <img
-                          width="40"
-                          height="40"
-                          class="rounded-circle"
-                          src="{{ ImageUrl }}"
-                      /></a>
+                        <img width="40" height="40" class="rounded-circle" src="{{ ImageUrl }}" /></a>
 
                       <ul class="submenu">
                         <li>
                           <a routerLink="/home" (click)="logout()">Logout</a>
                         </li>
                         <li>
-                          <a routerLink="/userprofile/" (click)="logout()"
-                            >Dashboard</a
-                          >
+                          <a [routerLink]="['/userprofile/',CurrentUser.id]">Profile</a>
                         </li>
-                        <li><a href="single-blog.html">Profile</a></li>
+                        <li><a [routerLink]="['user/dashboard/',CurrentUser.id]">View As Guest</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -105,12 +96,7 @@
                   <ul id="navigation">
                     <li>
                       <a href="#" class="navbar-brand">
-                        <img
-                          width="40"
-                          height="40"
-                          class="rounded-circle"
-                          src="https://placekitten.com/300/300"
-                      /></a>
+                        <img width="40" height="40" class="rounded-circle" src="https://placekitten.com/300/300" /></a>
 
                       <ul class="submenu">
                         <li>

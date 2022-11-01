@@ -35,5 +35,10 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 
+// import { ViewCVComponent } from './components/view-cv/view-cv.component';
+
+@NgModule({
+  declarations: [ListUserComponent],
+  imports: [CommonModule],
 })
-export class UserModule { }
+export class UserModule {}

@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   cvURL: any;
   cvName: any;
   url: any;
+  testURL: any;
+  iframeData: any;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -24,46 +26,46 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   // Download CV From Assets:
-  downloadCVFromAssets(): void {
-    window.location.href = 'assets/img/pdp/' + this.cvName;
-  }
+  // downloadCVFromAssets(): void {
+  //   window.location.href = 'assets/img/pdp/' + this.cvName;
+  // }
 
   //get file url
-  downloadCVByUrl(): void {
-    //c:/users/.../cv.pdf
-    this.cvservice.downloadCVByUrl(this.cvName, this.userId).subscribe(
-      (data: any) => {
-        console.log('DATA::::', data);
-        //data = JSON.parse(data);
-        //data = data.slice(1, -1);
-        //window.location.href = data;
-        this.url = data.url;
-        //console.log('DATA///URL:', data);
-        console.log('DATA///URL:', this.url);
-        //window.location.href =
-        //window.location.protocol + '//' + window.location.host + this.url;
-        //document.location.href = 'http://' + this.url;
-        this.url = 'C:' + this.url.slice(2);
-        console.log('URL///URL:', `http://${this.url}`);
-        window.open(`http://${this.url}`);
-      },
-      (err: any) => {
-        console.log('ERR DE RET', err);
-      }
-    );
-    // window.location.href ='C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\stagi.tn\\src\\assets\\img\\pdp\\GLSI-3-C.pdf';
-  }
+  // downloadCVByUrl(): void {
+  //   //c:/users/.../cv.pdf
+  //   this.cvservice.downloadCVByUrl(this.cvName, this.userId).subscribe(
+  //     (data: any) => {
+  //       console.log('DATA::::', data);
+  //       //data = JSON.parse(data);
+  //       //data = data.slice(1, -1);
+  //       //window.location.href = data;
+  //       this.url = data.url;
+  //       //console.log('DATA///URL:', data);
+  //       console.log('DATA///URL:', this.url);
+  //       //window.location.href =
+  //       //window.location.protocol + '//' + window.location.host + this.url;
+  //       //document.location.href = 'http://' + this.url;
+  //       this.url = 'C:' + this.url.slice(2);
+  //       console.log('URL///URL:', `http://${this.url}`);
+  //       //window.open(`http://${this.url}`);
+  //     },
+  //     (err: any) => {
+  //       console.log('ERR DE RET', err);
+  //     }
+  //   );
+  //   // window.location.href ='C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\stagi.tn\\src\\assets\\img\\pdp\\GLSI-3-C.pdf';
+  // }
   // download blob file
-  downloadCV(): void {
-    this.cvservice.downloadCV(this.cvName).subscribe(
-      (data: any) => {
-        console.log('CV', data);
-      },
-      (err: any) => {
-        console.log(err);
-      }
-    );
-  }
+  // downloadCV(): void {
+  //   this.cvservice.downloadCV(this.cvName).subscribe(
+  //     (data: any) => {
+  //       console.log('CV', data);
+  //     },
+  //     (err: any) => {
+  //       console.log(err);
+  //     }
+  //   );
+  // }
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
@@ -95,6 +97,9 @@ export class DashboardComponent implements OnInit {
               'assets/img/pdp/' + this.cvName;
             console.log('cvURL:', this.cvURL);
             console.log('cvName:', this.cvName);
+            this.testURL = 'assets/img/pdp/' + this.cvName;
+            this.iframeData = `${this.testURL}`;
+            console.log('iframeData:', this.iframeData);
           },
           (err: any) => {
             console.log(err);

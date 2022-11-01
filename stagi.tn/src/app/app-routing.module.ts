@@ -19,6 +19,7 @@ import { RequestsComponent } from './entreprise/components/requests/requests.com
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
 import { ResumeComponent } from './resume/resume.component';
 
+//import { ViewCVComponent } from './user/components/view-cv/view-cv.component';
 
 const routes: Routes = [
   { path: 'us-signup', component: SignupComponent },
@@ -58,6 +59,7 @@ const routes: Routes = [
   { path: 'userprofile/:id', component: UserprofileComponent },
   { path: 'user/dashboard/:id', component: DashboardComponent },
   { path: 'resume', component: ResumeComponent },
+  // { path: 'user/dashboard/viewcv/:cvname', component: ViewCVComponent },
 ];
 
 @NgModule({
