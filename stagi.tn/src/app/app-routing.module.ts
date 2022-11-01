@@ -17,7 +17,8 @@ import { DetailsComponent } from './offre/components/details/details.component';
 import { CvComponent } from './user/components/cv/cv.component';
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
-//import { ViewCVComponent } from './user/components/view-cv/view-cv.component';
+import { ResumeComponent } from './resume/resume.component';
+
 
 const routes: Routes = [
   { path: 'us-signup', component: SignupComponent },
@@ -56,7 +57,7 @@ const routes: Routes = [
   { path: 'addcv', component: CvComponent },
   { path: 'userprofile/:id', component: UserprofileComponent },
   { path: 'user/dashboard/:id', component: DashboardComponent },
-  // { path: 'user/dashboard/viewcv/:cvname', component: ViewCVComponent },
+  { path: 'resume', component: ResumeComponent },
 ];
 
 @NgModule({
