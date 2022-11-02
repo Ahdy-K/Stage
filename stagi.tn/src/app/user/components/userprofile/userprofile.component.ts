@@ -16,13 +16,16 @@ export class UserprofileComponent implements OnInit {
   fileInput: any;
   myCV: any;
   myCVINput: any;
+  completeProfile:any
   constructor(
     private cvservice: CVService,
     private userService: UserService,
     router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
-
+completeProfileBtn() {
+    this.completeProfile = !this.completeProfile;
+  }
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
