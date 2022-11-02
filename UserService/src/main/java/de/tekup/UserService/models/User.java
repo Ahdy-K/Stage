@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.List;
 // add entity annotation
 @Entity
 @Table(name = "User")
@@ -56,17 +56,24 @@ public class User {
     // attributes after account creation
     @Column(name = "cv")
     private String CV;
-   /* @Column(name = "urls")
-    private HashMap<String, String> urls;
-    @Column(name = "speciality")
+  // attributes after account creation
+    @Column(name = "cv")
+    private String CV;
+    @ElementCollection
+    //@MapKeyColumn(name = "urlName")
+    @Column(name = "urls",nullable = true)
+    private List<String> urls;
+    @Column(name = "speciality",nullable = true)
     private String speciality;
-    @Column(name = "skills")
+    @Column(name = "skills",nullable = true)
+    @ElementCollection
     private List<String> skills;
-    @Column(name = "softSkills")
+    @Column(name = "softSkills",nullable = true)
+    @ElementCollection
     private List<String> softSkills;
-    @Column(name = "grade")
+    @Column(name = "level",nullable = true)
     private String grade;
-    @Column(name = "intro")
-    private String intro;*/
+    @Column(name = "intro",nullable = true)
+    private String intro;
 
 }
