@@ -44,6 +44,12 @@ public class UserService {
             user.setCV(newUser.getCV());
         if(newUser.getImage()!=null)
             user.setImage(newUser.getImage());
+        if(newUser.getIntro()!=null)
+            user.setIntro(newUser.getIntro());
+        if(newUser.getProfile()!=null)
+            user.setProfile(newUser.getProfile());
+        if(newUser.getUniversity()!=null)
+            user.setUniversity(newUser.getUniversity());
         return userRepository.save(user) ;
     }
 
@@ -60,4 +66,12 @@ public class UserService {
         return userRepository.findUserByEmail(email);
 
     }
+
+    public String getUserProfile(Long id) {
+
+        User user= userRepository.findOneById(id);
+        return  user.getProfile();
+
+    }
+
 }

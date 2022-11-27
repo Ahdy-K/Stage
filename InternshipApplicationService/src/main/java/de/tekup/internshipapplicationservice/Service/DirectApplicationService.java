@@ -2,6 +2,7 @@ package de.tekup.internshipapplicationservice.Service;
 
 import de.tekup.internshipapplicationservice.Repository.DirectApplicationRepository;
 import de.tekup.internshipapplicationservice.models.DicrectApplication;
+import de.tekup.internshipapplicationservice.models.Status;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,50 +15,55 @@ import java.util.NoSuchElementException;
 public class DirectApplicationService {
 
     private final DirectApplicationRepository internshipRepository;
+
     public DicrectApplication getInternshipApplicationById(Long id){
-        return this.internshipRepository.getById(id);
+        return this.internshipRepository.findDicrectApplicationsById(id);
     }
 
     public List<DicrectApplication> getAllInernshipsApplications(){
         return this.internshipRepository.findAll();
     }
 
-    public DicrectApplication updateInternshipApplication(Long internshipId, DicrectApplication internship){
-        DicrectApplication newInternship = this.getInternshipApplicationById(internshipId);
-        if(newInternship==null){
-            throw new NoSuchElementException();
-        }else {
-            // update Internship
-            if(internship.getCv()!=null)
-                newInternship.setCv(internship.getCv());
-            if(internship.getMotivationLetter()!=null)
-                newInternship.setMotivationLetter(internship.getMotivationLetter());
-        }
-        return newInternship;
+    public List<DicrectApplication> getAllInernshipsApplicationsByEntreprise(Long entrepriseId){
+        return this.internshipRepository.findDicrectApplicationsByEntrepriseId(entrepriseId);
     }
-    public DicrectApplication addInternship(DicrectApplication internship){
+
+
+    public DicrectApplication addInternship(Long userId,Long entrepriseId){
         DicrectApplication exp = new DicrectApplication();
-        exp.setUserId(internship.getUserId());
-        exp.setEntrepriseId(internship.getEntrepriseId());
-        exp.setCv(internship.getCv());
-        exp.setMotivationLetter(exp.getMotivationLetter());
+        exp.setUserId(userId);
+        exp.setEntrepriseId(entrepriseId);
+        exp.setStatus(Status.PENDING);
         Date date = new Date();
         exp.setDate(date);
-        System.out.println(exp.toString());
+
         return this.internshipRepository.save(exp);
     }
-    public List<DicrectApplication> getUserSApplications(Long id){
-        return this.internshipRepository.getInternshipByUserId(id);
-    }
-    public DicrectApplication getUserInternshipById(Long id){
-        return this.internshipRepository.getById(id);
-    }
-    // !!! jointure n9sa
-    public List<DicrectApplication> getUserSApplicationByEnterpriseId(Long userId, Long enterpriseId){
 
-        return this.internshipRepository.getInternshipByUserIdAndAndEntrepriseId(userId, enterpriseId);
+
+    public List<DicrectApplication> getUserSApplications(Long id){
+        return this.internshipRepository.findDicrectApplicationsByUserId(id);
     }
-    public List<DicrectApplication> getEntrepriseSApplications(Long id){
-        return this.internshipRepository.getInternshipByUserId(id);
+
+    public void deleteApplication(Long id){
+        DicrectApplication application=internshipRepository.findDicrectApplicationsById(id);
+        this.internshipRepository.delete(application);
     }
+
+    public void acceptApplication(Long id){
+        DicrectApplication application=internshipRepository.findDicrectApplicationsById(id);
+        application.setStatus(Status.ACCEPTED);
+        this.internshipRepository.save(application);
+
+    }
+
+    public void rejectApplication(Long id){
+        DicrectApplication application=internshipRepository.findDicrectApplicationsById(id);
+        application.setStatus(Status.REJECTED);
+        this.internshipRepository.save(application);
+
+    }
+
+
+
 }

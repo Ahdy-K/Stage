@@ -2,9 +2,12 @@
     <div class="container">
         <div class="row">
             <!-- Left content -->
-            <div >
+            
+            <div>
                 <div class="row">
                     <div class="col-12">
+                        <!-- Checked switch -->
+
                         <div class="small-section-tittle2 mb-45">
                             <div class="ion"> <svg xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="12px">
@@ -13,7 +16,7 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h4>Filter Jobs</h4>
+                            <h4>Search using any keyword</h4>
                         </div>
                     </div>
                 </div>
@@ -22,217 +25,61 @@
                     <!-- single one -->
                     <div class="single-listing">
                         <div class="small-section-tittle2">
-                            <h4>Job Category</h4>
+                            <h4>Search</h4>
                         </div>
-                        <!-- Select job items start -->
-                        <div class="select-job-items2">
-                            <select name="select" style="display: none;">
-                                <option value="">All Category</option>
-                                <option value="">Category 1</option>
-                                <option value="">Category 2</option>
-                                <option value="">Category 3</option>
-                                <option value="">Category 4</option>
-                            </select>
-                            <div class="nice-select" tabindex="0"><span class="current">All Category</span>
-                                <ul class="list">
-                                    <li data-value="" class="option selected focus">All Category</li>
-                                    <li data-value="" class="option">Category 1</li>
-                                    <li data-value="" class="option">Category 2</li>
-                                    <li data-value="" class="option">Category 3</li>
-                                    <li data-value="" class="option">Category 4</li>
-                                </ul>
-                            </div>
+                        <div class="search-hero">
+                            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" placeholder="search by
+                                entreprise name or tehchnology">
                         </div>
-                        <!--  Select job items End-->
-                        <!-- select-Categories start -->
-                        <div class="select-Categories pt-80 pb-50">
-                            <div class="small-section-tittle2">
-                                <h4>Job Type</h4>
-                            </div>
-                            <label class="container">Full Time
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Part Time
-                                <input type="checkbox" checked="checked active">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Remote
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Freelance
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <!-- select-Categories End -->
+
+
                     </div>
-                    <!-- single two -->
-                    <div class="single-listing">
-                        <div class="small-section-tittle2">
-                            <h4>Job Location</h4>
-                        </div>
-                        <!-- Select job items start -->
-                        <div class="select-job-items2">
-                            <select name="select" style="display: none;">
-                                <option value="">Anywhere</option>
-                                <option value="">Category 1</option>
-                                <option value="">Category 2</option>
-                                <option value="">Category 3</option>
-                                <option value="">Category 4</option>
-                            </select>
-                            <div class="nice-select" tabindex="0"><span class="current">Anywhere</span>
-                                <ul class="list">
-                                    <li data-value="" class="option selected">Anywhere</li>
-                                    <li data-value="" class="option">Category 1</li>
-                                    <li data-value="" class="option">Category 2</li>
-                                    <li data-value="" class="option">Category 3</li>
-                                    <li data-value="" class="option">Category 4</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  Select job items End-->
-                        <!-- select-Categories start -->
-                        <div class="select-Categories pt-80 pb-50">
-                            <div class="small-section-tittle2">
-                                <h4>Experience</h4>
-                            </div>
-                            <label class="container">1-2 Years
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">2-3 Years
-                                <input type="checkbox" checked="checked active">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">3-6 Years
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">6-more..
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <!-- select-Categories End -->
-                    </div>
-                    <!-- single three -->
-                    <div class="single-listing">
-                        <!-- select-Categories start -->
-                        <div class="select-Categories pb-50">
-                            <div class="small-section-tittle2">
-                                <h4>Posted Within</h4>
-                            </div>
-                            <label class="container">Any
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Today
-                                <input type="checkbox" checked="checked active">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Last 2 days
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Last 3 days
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Last 5 days
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Last 10 days
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <!-- select-Categories End -->
-                    </div>
-                    <div class="single-listing">
-                        <!-- Range Slider Start -->
-                        <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
-                            <div class="small-section-tittle2">
-                                <h4>Filter Jobs</h4>
-                            </div>
-                            <div class="widgets_inner">
-                                <div class="range_item">
-                                    <!-- <div id="slider-range"></div> -->
-                                    <span class="irs js-irs-0"><span class="irs"><span class="irs-line"
-                                                tabindex="-1"><span class="irs-line-left"></span><span
-                                                    class="irs-line-mid"></span><span
-                                                    class="irs-line-right"></span></span><span class="irs-min"
-                                                style="visibility: hidden;">tk. 0</span><span class="irs-max"
-                                                style="visibility: visible;">tk. 1.000</span><span class="irs-from"
-                                                style="visibility: visible; left: 0%;">tk. 0</span><span class="irs-to"
-                                                style="visibility: visible; left: 38.3562%;">tk. 500</span><span
-                                                class="irs-single" style="visibility: hidden; left: 8.6758%;">tk. 0 -
-                                                tk. 500</span></span><span class="irs-grid"></span><span class="irs-bar"
-                                            style="left: 3.42466%; width: 46.5753%;"></span><span
-                                            class="irs-shadow shadow-from" style="display: none;"></span><span
-                                            class="irs-shadow shadow-to" style="display: none;"></span><span
-                                            class="irs-slider from" style="left: 0%;"></span><span
-                                            class="irs-slider to type_last" style="left: 46.5753%;"></span></span><input
-                                        type="text" class="js-range-slider irs-hidden-input" value="" readonly="">
-                                    <div class="d-flex align-items-center">
-                                        <div class="price_text">
-                                            <p>Price :</p>
-                                        </div>
-                                        <div class="price_value d-flex justify-content-center">
-                                            <input type="text" class="js-input-from" id="amount" readonly="">
-                                            <span>to</span>
-                                            <input type="text" class="js-input-to" id="amount" readonly="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                        <!-- Range Slider End -->
-                    </div>
+
+
+
                 </div>
                 <!-- Job Category Listing End -->
             </div>
             <!-- Right content -->
             <div class="col-xl-9 col-lg-9 col-md-8">
+                
                 <!-- Featured_job_start -->
                 <section class="featured-job-area">
                     <div class="container">
+                        
 
                         <!-- single-job-content -->
-                        <div *ngFor="let l of ListOffers " class="single-job-items mb-30" (click)="getOffersdetails(l.id)">
+                        <div *ngFor="let l of ListOffers|filter:searchText " class="single-job-items mb-30"
+                            (click)="getOffersdetails(l.id)">
                             <div class="job-items">
                                 <div class="job-tittle job-tittle2">
                                     <div class="company-img">
-                                        <img src="assets/img/icon/job-list3.png" alt="">
-                                        <div *ngFor="let e of ListEntreprises">
-                                            <h2 *ngIf="e.id==l.entrepriseId">{{e.name}}</h2>
+                                        <img src="{{l.enrepriselogo}}" alt="" class="rounded-circle img-fluid"
+                                            style="width: 70px">
+                                        <div>
+                                            <h2>{{l.entreprise?.name}}</h2>
+                                        </div>
+                                        <div class="items-link items-link2 f-right">
+                                            <a href="job_details.html">{{l.type}}</a>
                                         </div>
                                     </div>
-                                    
+
 
                                     <ul>
-                                        <li>{{l.subject}}</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
 
+                                        <li><i class="fas fa-map-marker-alt"></i>Tunis, Tunisia</li>
                                     </ul>
-                                    <p >
-                                        <b *ngFor="let tech of l.technologies"class="badge">{{tech}}</b>
-
-
-                                    </p>
+                                    <br>
                                     <p style="margin: none;">{{l.subject}}</p>
-
-
-
-
-
                                 </div>
                             </div>
-                            <div class="items-link items-link2 f-right">
-                                <a href="job_details.html">{{l.type}}</a>
+                            <div>
+
+                                <p>
+                                    <b *ngFor="let tech of l.technologies" class="badge">{{tech}}</b>
+
+
+                                </p>
                                 <span>from {{l.begin_date}} to {{l.end_date}}</span>
                             </div>
                         </div>

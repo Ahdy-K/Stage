@@ -16,12 +16,15 @@ export class UserprofileComponent implements OnInit {
   fileInput: any;
   myCV: any;
   myCVINput: any;
+  ProfileImg: any
+
+  universities = ['Tek Up', 'Ensi', 'Supcom', 'Ensit', 'Esprit', 'Seasame', 'Enit', 'Fst', 'Isi', 'Enisso']
   constructor(
     private cvservice: CVService,
     private userService: UserService,
     router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe({
@@ -34,7 +37,12 @@ export class UserprofileComponent implements OnInit {
             console.log('data///', data);
             this.myCV = data.cv;
             this.myFile = data.image;
-            console.log('myCV///', this.myCV, 'Image', this.myFile);
+            this.ProfileImg = this.user.image;
+            this.ProfileImg = this.ProfileImg.split('\\');
+            //console.log(this.Imagename);
+            this.ProfileImg =
+              // '\\assets\\img\\pdp\\' + this.Imagename[this.Imagename.length - 1];
+              'assets/img/pdp/' + this.ProfileImg[this.ProfileImg.length - 1];
           },
           (err: any) => {
             console.log(err);
@@ -75,6 +83,7 @@ export class UserprofileComponent implements OnInit {
 
         console.log('FORM:::', form);
         // Save cv
+
         this.cvservice.addCv(cv, 'usercv').subscribe({
           next: (data: any) => {
             console.log('dataafterIMG:::', data);
@@ -82,6 +91,7 @@ export class UserprofileComponent implements OnInit {
             this.userService.updateUser(form, this.userId).subscribe(
               (data: any) => {
                 console.log('SUBMIT DATA///', data);
+                alert('Profile Updated successfully')
               },
               (err: any) => {
                 console.log(err);
@@ -92,6 +102,8 @@ export class UserprofileComponent implements OnInit {
             console.log(err);
           },
         });
+
+
       },
       error: (err: any) => {
         console.log(err);

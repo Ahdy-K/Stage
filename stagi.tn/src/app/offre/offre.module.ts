@@ -8,7 +8,7 @@ import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
-    ListofferComponent
+  
 
 
   ],
@@ -16,7 +16,7 @@ import { DetailsComponent } from './components/details/details.component';
     CommonModule
   ],
   exports: [
-    ListofferComponent
+ 
 
 
 

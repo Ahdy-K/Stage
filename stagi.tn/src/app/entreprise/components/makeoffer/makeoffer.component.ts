@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OfferService } from '../offer.service';
-
+import {MatChipsModule} from '@angular/material/chips';
 
 @Component({
   selector: 'app-makeoffer',

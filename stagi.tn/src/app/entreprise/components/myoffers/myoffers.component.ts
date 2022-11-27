@@ -11,9 +11,11 @@ import { OfferService } from '../offer.service';
 })
 export class MyoffersComponent implements OnInit {
   listRequest: any;
+  ImageUrl:any
 
   constructor(public dialog: MatDialog, private offerservice: OfferService) { }
   ngOnInit(): void {
+    this.ImageUrl=window.localStorage.getItem('ImageUrl')
     this.getOffers()
 
   }
@@ -64,5 +66,18 @@ export class MyoffersComponent implements OnInit {
       }
   })
   }
+  deleteOffer(id: number): void {
+    this.offerservice.deleteOffer(id).subscribe({
+      next: (data) => {
+        window.location.reload();
+
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+
+  }
+
 
   }

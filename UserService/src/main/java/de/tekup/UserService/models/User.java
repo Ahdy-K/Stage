@@ -56,17 +56,12 @@ public class User {
     // attributes after account creation
     @Column(name = "cv")
     private String CV;
-   /* @Column(name = "urls")
-    private HashMap<String, String> urls;
-    @Column(name = "speciality")
-    private String speciality;
-    @Column(name = "skills")
-    private List<String> skills;
-    @Column(name = "softSkills")
-    private List<String> softSkills;
-    @Column(name = "grade")
-    private String grade;
+
     @Column(name = "intro")
-    private String intro;*/
+    private String intro;
+    @Column(name = "university")
+    private String university;
+    @Column(name = "profile")
+    private String profile;
 
 }

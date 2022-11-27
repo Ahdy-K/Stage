@@ -34,7 +34,7 @@
               </div>
               <!-- Header-btn -->
               <div class="header-btn d-none f-right d-lg-block">
-                <a href="#" class="btn head-btn1">Register</a>
+                
                 <a routerLink="log-in" class="btn head-btn2">Login</a>
               </div>
             </div>
@@ -48,7 +48,9 @@
                     <li><a routerLink="/">Home</a></li>
                     <li><a routerLink="/listEntreprises">Entreprises</a></li>
                     <li><a routerLink="/offerlist">Offers</a></li>
-                    <li><a routerLink="/listEntreprises">Internships</a></li>
+                    <li><a routerLink="/recommanded">Recommanded</a></li>
+
+                    <li><a routerLink="/requests">Internships</a></li>
                     <li><a routerLink="/resume">Resume</a></li>
 
 
@@ -68,9 +70,9 @@
                           <a routerLink="/home" (click)="logout()">Logout</a>
                         </li>
                         <li>
-                          <a [routerLink]="['/userprofile/',CurrentUser.id]">Profile</a>
+                          <a [routerLink]="['/userprofile/',CurrentUser?.id]">Profile</a>
                         </li>
-                        <li><a [routerLink]="['user/dashboard/',CurrentUser.id]">View As Guest</a></li>
+                        <li><a [routerLink]="['user/dashboard/',CurrentUser?.id]">View As Guest</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -96,13 +98,14 @@
                   <ul id="navigation">
                     <li>
                       <a href="#" class="navbar-brand">
-                        <img width="40" height="40" class="rounded-circle" src="https://placekitten.com/300/300" /></a>
+                        <img width="40" height="40" class="rounded-circle" src="{{ImageUrl}}" /></a>
 
                       <ul class="submenu">
                         <li>
                           <a routerLink="/home" (click)="logout()">Logout</a>
                         </li>
-                        <li><a href="single-blog.html">Profile</a></li>
+                        <li><a [routerLink]="['/entrepriseprofile/',CurrentUser?.id]">Profile</a></li>
+                        <li><a [routerLink]="['entreprise/dashboard/',CurrentUser?.id]">View As Guest</a></li>
                       </ul>
                     </li>
                   </ul>

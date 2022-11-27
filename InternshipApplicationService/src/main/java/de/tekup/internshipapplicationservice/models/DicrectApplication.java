@@ -23,10 +23,10 @@ public class DicrectApplication {
     private Long entrepriseId;
     @Column(name = "date")
     private Date date;
-    @Column(name = "cv")
-    private File cv;
-    @Column(name = "motivationLetter")
-    private File motivationLetter;
+
+    private Status status;
+
 
 
 }
+

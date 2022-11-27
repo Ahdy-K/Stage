@@ -28,7 +28,14 @@ public class Offer {
     private List<String> technologies=new ArrayList<>();
     @ElementCollection
     private List<String> skills=new ArrayList<>();
+
+    private String title;
+
+    /*remote or not*/
     private String type;
+
+
+    private boolean remote=false;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate begin_date;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

@@ -8,9 +8,10 @@ import java.util.Date;
 import java.util.List;
 @Repository
 public interface DirectApplicationRepository extends JpaRepository<DicrectApplication,Long> {
-    DicrectApplication getInternshipByDate(Date date);
-    List<DicrectApplication> getInternshipByEntrepriseId(Long entrepriseId);
-    List<DicrectApplication> getInternshipByUserId(Long userId);
-    DicrectApplication getById(Long id);
-    List<DicrectApplication> getInternshipByUserIdAndAndEntrepriseId(Long userId, Long enterpriseId);
+
+    DicrectApplication findDicrectApplicationsByDate(Date date);
+    List<DicrectApplication> findDicrectApplicationsByEntrepriseId(Long entrepriseId);
+    List<DicrectApplication> findDicrectApplicationsByUserId(Long userId);
+    DicrectApplication findDicrectApplicationsById(Long id);
+    List<DicrectApplication> findDicrectApplicationsByUserIdAndEntrepriseId(Long userId, Long enterpriseId);
 }

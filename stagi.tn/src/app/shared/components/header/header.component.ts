@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { EntrepriseService } from 'src/app/entreprise/entreprise.service';
 import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
@@ -16,18 +18,31 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private userservice: UserService,
-    public sanitizer: DomSanitizer
-  ) {}
+    public sanitizer: DomSanitizer,
+    private router: Router,
+    private entrepriseservice: EntrepriseService
+  ) { }
 
   ngOnInit(): void {
     this.Accountchange();
     console.log(this.Account);
     this.User = window.localStorage.getItem('USER');
-    this.getUser();
+    if (this.Account == 'STUDENT') {
+      this.getUser();
+
+    } else {
+      this.getEntreprise();
+    }
+
   }
   logout() {
+    
     window.localStorage.clear();
+    
+    this.router.navigate(['/'])
     window.location.reload();
+
+
   }
   Accountchange() {
     console.log(window.localStorage.getItem('ACCOUNT'));
@@ -46,6 +61,7 @@ export class HeaderComponent implements OnInit {
     this.userservice.getUserByEmail(this.User).subscribe({
       next: (data) => {
         this.CurrentUser = data;
+        window.localStorage.setItem('id',this.CurrentUser.id)
         console.log('data', data);
         this.ImageUrl = this.CurrentUser.image;
         this.Imagename = this.ImageUrl.split('\\');
@@ -54,6 +70,25 @@ export class HeaderComponent implements OnInit {
           // '\\assets\\img\\pdp\\' + this.Imagename[this.Imagename.length - 1];
           'assets/img/pdp/' + this.Imagename[this.Imagename.length - 1];
         console.log('imageURL:', this.ImageUrl);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+  getEntreprise() {
+    this.entrepriseservice.getUserByEmail(this.User).subscribe({
+      next: (data) => {
+        this.CurrentUser = data;
+        console.log('data', data);
+        this.ImageUrl = this.CurrentUser.logo;
+        this.Imagename = this.ImageUrl.split('\\');
+        //console.log(this.Imagename);
+        this.ImageUrl =
+          // '\\assets\\img\\pdp\\' + this.Imagename[this.Imagename.length - 1];
+          'assets/img/pdp/' + this.Imagename[this.Imagename.length - 1];
+        console.log('imageURL:', this.ImageUrl);
+        window.localStorage.setItem('ImageUrl', this.ImageUrl)
       },
       error: (err) => {
         console.log(err);

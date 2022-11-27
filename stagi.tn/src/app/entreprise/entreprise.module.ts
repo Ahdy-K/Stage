@@ -4,9 +4,9 @@ import { SignupComponent } from './components/signup/signup.component';
 
 import { FormsModule } from '@angular/forms';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { DetailsOfferComponent } from './components/details-offer/details-offer.component';
-import { ListEntreprisesComponent } from './components/list-entreprises/list-entreprises.component';
-import { RequestsComponent } from './components/requests/requests.component';
+
+import { MatChipsModule } from '@angular/material/chips';
+import { DetailEntrepriseComponent } from './components/detail-entreprise/detail-entreprise.component';
 
 
 
@@ -14,15 +14,12 @@ import { RequestsComponent } from './components/requests/requests.component';
 
 @NgModule({
   declarations: [
-    SignupComponent,
-    
-  
-  
   ],
   imports: [
     CommonModule,
     FormsModule,
     NgxMatSelectSearchModule,
+    MatChipsModule
    
     
 

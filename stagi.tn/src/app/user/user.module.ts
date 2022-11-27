@@ -7,7 +7,9 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
+import { InternshipsComponent } from './components/internships/internships.component';
+import { RecommendedComponent } from './components/recommended/recommended.component';
 
 
 
@@ -17,28 +19,22 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
+  
     
-    ListUserComponent,
   
           
 
+  
+    
   ],
   imports: [
     CommonModule,
     FormsModule,
-    NgxExtendedPdfViewerModule,
+ 
     
     
   
   ]
 
-
-
-
-// import { ViewCVComponent } from './components/view-cv/view-cv.component';
-
-@NgModule({
-  declarations: [ListUserComponent],
-  imports: [CommonModule],
 })
 export class UserModule {}

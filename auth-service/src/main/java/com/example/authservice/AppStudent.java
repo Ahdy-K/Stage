@@ -28,4 +28,10 @@ public class AppStudent {
     private String gender;
 
     private String address;
+
+    private String intro;
+
+    private  String university;
+
+    private String profile;
 }

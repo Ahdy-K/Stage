@@ -48,8 +48,8 @@ public class OfferController {
     public Offer updateOffer(@PathVariable("offerId") Long offerId,@RequestBody Offer offer){
         return this.offerService.updateOffer(offerId,offer);
     }
-    @DeleteMapping("/deletoffer")
-    public void deleteoffer(Long idoffer){
+    @DeleteMapping("/deletoffer/{idoffer}")
+    public void deleteoffer(@PathVariable("idoffer") Long idoffer){
         this.offerService.deleteOffer(idoffer);
 
     }
