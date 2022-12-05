@@ -16,14 +16,17 @@ export class UserprofileComponent implements OnInit {
   fileInput: any;
   myCV: any;
   myCVINput: any;
+
   ProfileImg: any
 
   universities = ['Tek Up', 'Ensi', 'Supcom', 'Ensit', 'Esprit', 'Seasame', 'Enit', 'Fst', 'Isi', 'Enisso']
+
   constructor(
     private cvservice: CVService,
     private userService: UserService,
     router: Router,
     private activatedRoute: ActivatedRoute
+
   ) { }
 
   ngOnInit(): void {
@@ -65,9 +68,7 @@ export class UserprofileComponent implements OnInit {
     console.log(this.myCV);
   }
   onSubmit(form: any) {
-    //form.keywords = form.keywords.split(',');
 
-    ///////////////////////
     let image = new FormData();
     image.append('file', this.myFile);
     let cv = new FormData();

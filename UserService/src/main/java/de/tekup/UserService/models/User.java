@@ -57,6 +57,7 @@ public class User {
     @Column(name = "cv")
     private String CV;
 
+
     @Column(name = "intro")
     private String intro;
     @Column(name = "university")
