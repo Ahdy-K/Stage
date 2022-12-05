@@ -44,7 +44,10 @@ import { DetailEntrepriseComponent } from './entreprise/components/detail-entrep
 import {Ng2SearchPipeModule} from 'ng2-search-filter'
 import { IndexComponent } from './home/components/index/index.component';
 import { RecommendedComponent } from './user/components/recommended/recommended.component';
+import { ApplicationsComponent } from './user/components/applications/applications.component';
 //import { ViewCVComponent } from './Stage/stagi.tn/src/app/user/components/view-cv/view-cv.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 @NgModule({
   declarations: [
@@ -78,7 +81,8 @@ import { RecommendedComponent } from './user/components/recommended/recommended.
     EntrepriseprofileComponent,
     DetailEntrepriseComponent,
     IndexComponent,
-    RecommendedComponent
+    RecommendedComponent,
+    ApplicationsComponent
 
   ],
   imports: [
@@ -92,7 +96,8 @@ import { RecommendedComponent } from './user/components/recommended/recommended.
     NgxExtendedPdfViewerModule,
     PdfViewerModule,
     MatChipsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgSelectModule
 
 
 

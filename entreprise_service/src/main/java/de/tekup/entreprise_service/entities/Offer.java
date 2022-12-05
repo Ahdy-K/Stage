@@ -26,6 +26,9 @@ public class Offer {
     private LocalDate begin_date;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate end_date;
+    @ElementCollection
+    private List<String> skills=new ArrayList<>();
+    private String title;
 
 
 }

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { OfferService } from 'src/app/entreprise/components/offer.service';
 import { OffreService } from 'src/app/offre/services/offre.service';
 import { UserService } from '../../services/user.service';
 var stringSimilarity = require('string-similarity');
@@ -9,11 +11,12 @@ var stringSimilarity = require('string-similarity');
   styleUrls: ['./recommended.component.css']
 })
 export class RecommendedComponent implements OnInit {
-
+  searchText:any
   User: any
   listOffers: any
+  ListOffers:any
   recommandedOffers: any
-  constructor(private userservice: UserService, private http: HttpClient, private offreservice: OffreService) { }
+  constructor(private userservice: UserService, private http: HttpClient, private offreservice: OffreService, private router :Router) { }
 
   ngOnInit(): void {
     // var stringSimilarity = require('string-similarity');
@@ -86,10 +89,12 @@ export class RecommendedComponent implements OnInit {
   getRecomandedOffers(allprofiles: any, alloffers: any) {
     //les profiles simiaires a mon profile
     var list = []
+    
     for (let i of Object.keys(allprofiles)) {
       list.push(allprofiles[i])
 
     }
+    this.ListOffers=[]
     for (let offer of alloffers) {
       var matches = stringSimilarity.findBestMatch(offer.title, list);
       var getSimilar = [];
@@ -102,11 +107,36 @@ export class RecommendedComponent implements OnInit {
 
         }
       }
+      
       if (getSimilar.length != 0) {
-        console.log("//////",offer)
+       this.ListOffers.push(offer)
       }
+      
+      
 
 
     }
+    console.log("/////////////",this.ListOffers)
   }
+   //get entreprises by Id
+   getentreprise(id: number): void {
+    this.offreservice.getEntrepriseById(id).subscribe(
+      data => {
+        console.log(data);
+
+      },
+      error => {
+        console.log(error)
+      }
+    )
+
+
+  }
+    //get offer details
+    getOffersdetails(id: number): void {
+
+      this.router.navigate(["detailsOffer/", id])
+  
+  
+    }
 }

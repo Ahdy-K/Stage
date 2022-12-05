@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { InternshipsComponent } from './components/internships/internships.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
+import { ApplicationsComponent } from './components/applications/applications.component';
 
 
 
@@ -24,6 +25,8 @@ import { RecommendedComponent } from './components/recommended/recommended.compo
   
           
 
+  
+    
   
     
   ],

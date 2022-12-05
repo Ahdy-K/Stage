@@ -66,10 +66,14 @@
 
 
                                     <ul>
-
+                                        <li><span *ngIf="l.remote" class="badge badge-success">Remote</span>
+                                            <span *ngIf="!l.remote" class="badge badge-danger">On site</span></li>
+                                        
                                         <li><i class="fas fa-map-marker-alt"></i>Tunis, Tunisia</li>
                                     </ul>
+                                    
                                     <br>
+                                    <h3 style="font-size: bold;">{{l?.title}}</h3>
                                     <p style="margin: none;">{{l.subject}}</p>
                                 </div>
                             </div>

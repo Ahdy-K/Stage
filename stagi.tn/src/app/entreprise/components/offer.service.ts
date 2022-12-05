@@ -15,6 +15,10 @@ export class OfferService {
     return this.http.post('http://localhost:8081/api-entreprise/makeoffer', form)
 
   }
+  updateOffer(id:number,form: any): Observable<any> {
+    return this.http.put('http://localhost:8081/api-entreprise/updateOffer/'+id, form)
+
+  }
   getOffers(): Observable<any> {
 
     return this.http.get('http://localhost:8081/api-entreprise/offers')

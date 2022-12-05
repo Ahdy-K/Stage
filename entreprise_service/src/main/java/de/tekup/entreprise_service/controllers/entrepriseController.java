@@ -138,6 +138,13 @@ public class entrepriseController {
         ResponseEntity<?> responseEntity = restTemplate.getForEntity("http://localhost:9099/offers/offer/{id}",Object.class,id);
         return  ResponseEntity.ok().body(responseEntity.getBody());
     }
+    @PutMapping("/updateOffer/{id}")
+    public ResponseEntity<?> updateOffer(@PathVariable Long id,Offer offer){
+        ResponseEntity<?> responseEntity = restTemplate.
+                postForEntity("http://localhost:9099/offers/updateoffer/{id}", offer,Object.class,id);
+        return ResponseEntity.ok().body(responseEntity.getBody());
+
+    }
 /*
     @PostMapping("/deleteOffer/{id}")
     public ResponseEntity<?> deleteOffer(@PathVariable Long id) {

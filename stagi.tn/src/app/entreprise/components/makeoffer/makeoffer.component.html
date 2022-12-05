@@ -9,7 +9,15 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" ngModel name="subject" id="subject" type="text"
+                                <input class="form-control" ngModel name="title" id="title" type="text" 
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a title for your offer  '"
+                                    placeholder="Choose a title for your offer ">
+
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <input class="form-control" ngModel name="subject" id="subject" type="text" 
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter a subject  '"
                                     placeholder="Entrer a subject">
 
@@ -17,14 +25,31 @@
                         </div>
 
 
-                        <div class="col-12">
-                            <select name="technologies" multiple id="tech" class="form-control" data-live-search="true">
-                                <option *ngFor="let l of ListTechnologies" [value]="l">{{l}}</option>
-
-                            </select>
+                        <div class="col-12" >
+                             <!--Using ng-option and for loop-->
+                             <label for="technologies">Choose technologies here</label>
+                             <div  class="input-group-prepend">
+                                <ng-select ngModel name="technologies" class="form-control input-sm " [multiple]="true"  >
+                                    <ng-option *ngFor="let l of ListTechnologies" [value]="l" style="color: bleu;">{{l}}</ng-option>
+                                </ng-select>
+                             </div>
+                       
 
                         </div>
-                        
+
+                        <div class="col-12" >
+                            <!--Using ng-option and for loop-->
+                            <label for="skills">Choose Recommanded Skills here</label>
+                            <div  class="input-group-prepend">
+                               <ng-select ngModel name="skills" class="form-control input-sm " [multiple]="true"  [addTag]="true" [items]="CustomTags">
+                                   
+                               </ng-select>
+                            </div>
+                      
+
+                       </div>
+
+
 
 
 
@@ -46,12 +71,9 @@
                             </div>
                         </div>
 
-                        <!-- <mat-chip-listbox aria-label="Fish selection">
-                            <mat-chip-option>One fish</mat-chip-option>
-                            <mat-chip-option>Two fish</mat-chip-option>
-                            <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
-                            <mat-chip-option color="warn">Warn fish</mat-chip-option> -->
-                          <!-- </mat-chip-listbox> -->
+                       
+
+                      
 
                         <div class="col-6">
                             <div class="form-group">

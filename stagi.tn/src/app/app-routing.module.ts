@@ -22,6 +22,7 @@ import { InternshipsComponent } from './user/components/internships/internships.
 import { EntrepriseprofileComponent } from './entreprise/components/entrepriseprofile/entrepriseprofile.component';
 import { DetailEntrepriseComponent } from './entreprise/components/detail-entreprise/detail-entreprise.component';
 import { RecommendedComponent } from './user/components/recommended/recommended.component';
+import { ApplicationsComponent } from './user/components/applications/applications.component';
 
 //import { ViewCVComponent } from './user/components/view-cv/view-cv.component';
 
@@ -68,7 +69,9 @@ const routes: Routes = [
   { path: 'requests', component: InternshipsComponent },
   { path: 'entreprise/dashboard/:id', component: EnDashboardComponent },
   { path: 'entrepriseprofile/:id', component: EntrepriseprofileComponent },
-  {path: 'entreprisedetails/:id', component: DetailEntrepriseComponent}
+  {path: 'entreprisedetails/:id', component: DetailEntrepriseComponent},
+  
+  { path: 'applications', component: ApplicationsComponent },
 
  
 ];

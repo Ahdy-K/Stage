@@ -74,6 +74,7 @@ export class MyoffersComponent implements OnInit {
       },
       error: (err) => {
         console.log(err)
+        alert("you cannot delete this offer maybe some students made requests here ")
       }
     })
 

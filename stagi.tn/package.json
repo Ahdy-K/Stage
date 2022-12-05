@@ -22,6 +22,8 @@
     "@angular/router": "~13.3.0",
     "@auth0/angular-jwt": "^5.1.0",
     "@grapecity/gcpdfviewer": "^3.2.3",
+    "@ng-select/ng-select": "^8.3.0",
+    "@syncfusion/ej2-angular-dropdowns": "^20.3.59",
     "bootstrap-icons": "^1.10.2",
     "console-browserify": "^1.2.0",
     "ng2-pdf-viewer": "^9.1.2",

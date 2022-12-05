@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   CurrentUser: any;
   ImageUrl: any;
   Imagename: any;
+  cv:any
 
   constructor(
     private userservice: UserService,
@@ -70,6 +71,15 @@ export class HeaderComponent implements OnInit {
           // '\\assets\\img\\pdp\\' + this.Imagename[this.Imagename.length - 1];
           'assets/img/pdp/' + this.Imagename[this.Imagename.length - 1];
         console.log('imageURL:', this.ImageUrl);
+
+        this.cv = this.CurrentUser.cv;
+        this.cv = this.cv.split('\\');
+        //console.log(this.Imagename);
+        this.cv =
+          // '\\assets\\img\\pdp\\' + this.Imagename[this.Imagename.length - 1];
+          'assets/img/pdp/' + this.cv[this.cv.length - 1];
+        console.log('CV//:', this.cv);
+        window.localStorage.setItem('cv',this.cv)
       },
       error: (err) => {
         console.log(err);
@@ -80,6 +90,7 @@ export class HeaderComponent implements OnInit {
     this.entrepriseservice.getUserByEmail(this.User).subscribe({
       next: (data) => {
         this.CurrentUser = data;
+        window.localStorage.setItem('id',this.CurrentUser.id)
         console.log('data', data);
         this.ImageUrl = this.CurrentUser.logo;
         this.Imagename = this.ImageUrl.split('\\');

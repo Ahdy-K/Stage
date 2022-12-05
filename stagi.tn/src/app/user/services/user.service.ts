@@ -71,4 +71,13 @@ export class UserService {
   getSemilarProfile(profile: string): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/recom/' + profile)
   }
+  getEntrepriseApplications(id: number): Observable<any> {
+    return this.http.get('http://localhost:9099/spontaneousapplications/entrepriseapplications/' + id)
+  }
+  rejectApplication(id:number):Observable<any>{
+    return this.http.put('http://localhost:9099/spontaneousapplications/rejectapplication/' + id,null)
+  }
+  acceptApplication(id:number):Observable<any>{
+    return this.http.put('http://localhost:9099/spontaneousapplications/accesptapplication/' + id,null)
+  }
 }

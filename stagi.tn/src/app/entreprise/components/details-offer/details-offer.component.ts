@@ -17,6 +17,7 @@ export class DetailsOfferComponent implements OnInit {
   entrepriseId: any
   technologies: any
 
+  ListTechnologies = ["Spring Boot", "Angular", "Django", "Python", "Java", "Spring", ".Net", "C", "c#", "C++", "Machine Learning", "Hibernate", "ORM", "MySQL", "PostgreSql"]
 
 
 
@@ -49,5 +50,16 @@ export class DetailsOfferComponent implements OnInit {
     )
 
 
+  }
+  updateOffer(id:number,form:any){
+    this.offerserv.updateOffer(id,form).subscribe({
+      next:data=>{
+        console.log("data")
+      },
+      error:err=>{
+        console.log(err),
+        alert("these offer cannt been updated")
+      }
+    })
   }
 }
