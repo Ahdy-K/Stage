@@ -56,21 +56,13 @@ public class User {
     // attributes after account creation
     @Column(name = "cv")
     private String CV;
-    @ElementCollection
-    //@MapKeyColumn(name = "urlName")
-    @Column(name = "urls",nullable = true)
-    private List<String> urls;
-    @Column(name = "speciality",nullable = true)
-    private String speciality;
-    @Column(name = "skills",nullable = true)
-    @ElementCollection
-    private List<String> skills;
-    @Column(name = "softSkills",nullable = true)
-    @ElementCollection
-    private List<String> softSkills;
-    @Column(name = "level",nullable = true)
-    private String grade;
-    @Column(name = "intro",nullable = true)
+
+
+    @Column(name = "intro")
     private String intro;
+    @Column(name = "university")
+    private String university;
+    @Column(name = "profile")
+    private String profile;
 
 }

@@ -51,6 +51,12 @@ export class DetailsComponent implements OnInit {
       data => {
         console.log(data)
         this.Entreprise = data
+        
+        this.Entreprise.enrepriselogo = this.Entreprise.logo;
+        this.Entreprise.enrepriselogo = this.Entreprise.enrepriselogo.split('\\');
+        //console.log(this.Imagename);
+        this.Entreprise.enrepriselogo =
+          'assets/img/pdp/' + this.Entreprise.enrepriselogo[this.Entreprise.enrepriselogo.length - 1];
 
 
       },

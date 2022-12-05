@@ -40,6 +40,14 @@ public class OfferService {
             offer.setTechnologies(newOffer.getTechnologies());
         if (newOffer.getType()!=null)
             offer.setType(newOffer.getType());
+        if(newOffer.getTitle()!=null)
+            offer.setTitle(newOffer.getTitle());
+        if (newOffer.getSkills()!=null)
+            offer.setSkills(newOffer.getSkills());
+        if(newOffer.getBegin_date()!=null)
+            offer.setBegin_date(newOffer.getBegin_date());
+        if (newOffer.getEnd_date()!=null)
+            offer.setEnd_date(newOffer.getEnd_date());
         return offerRepository.save(offer);
     }
 

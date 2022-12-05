@@ -8,9 +8,11 @@ import { OffreService } from 'src/app/offre/services/offre.service';
   styleUrls: ['./list-entreprises.component.css']
 })
 export class ListEntreprisesComponent implements OnInit {
-
+  ImageUrl:any;
+  Imagename:any
   constructor(private offerservice: OffreService) { }
-
+SearchByName:any
+SearchByType:any
   ngOnInit(): void {
     this.getentreprises()
   }
@@ -21,7 +23,18 @@ export class ListEntreprisesComponent implements OnInit {
     this.offerservice.getEntreprises().subscribe(
       data => {
         this.ListEntreprises = data
-        console.log(data)
+        
+        for(let entreprise of this.ListEntreprises){
+          this.ImageUrl = entreprise.logo;
+          this.Imagename = this.ImageUrl.split('\\');
+          //console.log(this.Imagename);
+          this.ImageUrl =
+            'assets/img/pdp/' + this.Imagename[this.Imagename.length - 1];
+          console.log('imageURL:', this.ImageUrl);
+          entreprise.logoUrl=this.ImageUrl
+          
+        }
+        console.log(this.ListEntreprises)
 
       },
       error => {

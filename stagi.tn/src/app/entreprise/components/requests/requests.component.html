@@ -3,19 +3,22 @@
         <div *ngFor="let request of listRequest " class="row justify-content-center">
             <div class="col-xl-10">
                 <!-- single-job-content -->
-                <div class="single-job-items mb-30">
-                    <div class="job-items">
+                <div class="single-job-items mb-30" >
+                    <div class="job-items" [routerLink]="['/user/dashboard',request.user?.id]">
                         <div class="company-img">
-                            <a href="job_details.html"><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                            <a href="job_details.html"><img src="{{request.user?.ImageUrl}}"
                                     class="rounded-circle" style="width: 150px;" alt="Avatar"></a>
 
                         </div>
                         <div class="job-tittle">
+                            
+                            <span *ngIf="!request?.status" class="badge badge-warning">Pending</span>
+                            <span *ngIf="request?.status" class="badge badge-success">Accepted</span>
 
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="2">{{request.user?.firstName}}  {{request.user?.lastName}} </th>
+                                        <th colspan="2">{{request.user?.firstName}} {{request.user?.lastName}} </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,9 +49,9 @@
                         <a href="job_details.html">{{request.offer.type}}</a>
                         <span>applayed at {{request.date|date}}</span>
                         <div style="margin-top: 20%;">
-                            <a><i style="color:red; " class="fa fa-trash"></i></a>
-                            <a><i style="color:green; " class="fa fa-edit"></i></a>
-                            
+                            <a (click)="deleteRequest(request.id)"><i style="color:red; " class="fa fa-trash"></i></a>
+                            <a (click)="confimRequest(request.id)"><i style="color:green; " class="fa fa-edit"></i></a>
+
                         </div>
 
                     </div>

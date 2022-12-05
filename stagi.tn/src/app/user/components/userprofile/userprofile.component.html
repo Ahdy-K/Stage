@@ -1,15 +1,27 @@
+<div class="bg-image" style="background-image: url('assets/img/usercover.jpg');
+            height: 50vh">
+            <div class="centered"> <h1 style="color:white ;">{{user.intro}}</h1>
+            </div>
+            <div class="pdp-image"><img src="{{ProfileImg}}" class="rounded-circle img-fluid">
+              
+          </div>
+
+           
+</div>
+<form
+#f="ngForm"
+(ngSubmit)="onSubmit(f.value)"
+class="form-contact contact_form"
+>
 <section class="contact-section">
   <div class="container">
     <div class="row">
+     
       <div class="col-12">
         <h2 class="contact-title">Modifier votre Profil :</h2>
       </div>
       <div class="col-lg-8">
-        <form
-          #f="ngForm"
-          (ngSubmit)="onSubmit(f.value)"
-          class="form-contact contact_form"
-        >
+        
           <div class="row">
             <div class="col-12">
               <div class="form-group">
@@ -227,37 +239,114 @@
               <!---->
             </div>
           </div>
-          <div class="form-group mt-3">
-            <button type="submit" class="button button-contactForm boxed-btn">
-              Update profile
-            </button>
-          </div>
-        </form>
+         
+        
       </div>
-      <div class="col-lg-3 offset-lg-1">
+      <div class="col-lg-4">
         <div class="media contact-info">
-          <span class="contact-info__icon"><i class="ti-home"></i></span>
-          <div class="media-body">
-            <h3>Buttonwood, California.</h3>
-            <p>Rosemead, CA 91770</p>
+          <div class="col-12">
+            <label for="">Intro</label>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            [(ngModel)]="user.intro"
+            id="intro"
+            type="text"
+            name="intro"
+            placeholder="{{ user.intro }}"
+          ></textarea>
+        </div>
           </div>
+          </div>
+        <div class="media contact-info">
+          <div class="col-12">
+            <div class="form-group">
+                <label for="">Profile</label>
+                <select class="form-select nice-select" id='typeen' aria-label="Default select example"
+                    name="profile" [(ngModel)]="user.profile">
+
+                    <option value="Full Stack web developper">Full Stack web developper</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Data Scientist">Data Scientist</option>
+                    <option value="Buisness Analyst">Buisness Analyst</option>
+                    <option value="BlockChain Engineer">BlockChain Engineer</option>
+                    <option value="Ui/Ux Designer">Ui/Ux Designer</option>
+                    <option value="Devops Engineer">Devops Engineer</option>
+                    <option value="Cloud Engineer">Cloud Engineer</option>
+
+
+
+                </select>
+            </div>
+        </div>
         </div>
         <div class="media contact-info">
-          <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-          <div class="media-body">
-            <h3>+1 253 565 2365</h3>
-            <p>Mon to Fri 9am to 6pm</p>
-          </div>
+          <div class="col-12">
+            <div class="form-group">
+                <label for="">University</label>
+                <select  class="form-select nice-select" id='typeen' aria-label="Default select example"
+                    name="university" [(ngModel)]="user.university">
+
+                    <option  *ngFor="let u of universities" value="{{u}}">{{u}}</option>
+                   
+
+
+
+                </select>
+            </div>
         </div>
+        </div>
+        
         <div class="media contact-info">
-          <span class="contact-info__icon"><i class="ti-email"></i></span>
-          <div class="media-body">
-            <h3>support@colorlib.com</h3>
-            <p>Send us your query anytime!</p>
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fas fa-globe fa-lg text-warning"></i>
+                <input
+                class="form-control"
+                [(ngModel)]="user.firstName"
+                id="website"
+                type="text"
+                name="website"
+                placeholder="{{ user.firstName }}"
+              />
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fab fa-github fa-lg" style="color: #333333"></i>
+                <input
+                class="form-control"
+                [(ngModel)]="user.firstName"
+                id="github"
+                type="text"
+                name="github"
+                placeholder="{{ user.firstName }}"
+              />
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fab fa-twitter fa-lg" style="color: #55acee"></i>
+                <input
+                class="form-control"
+                [(ngModel)]="user.firstName"
+                id="tweter"
+                type="text"
+                name="tweter"
+                placeholder="{{ user.firstName }}"
+              />
+              </li>
+             
+            </ul>
           </div>
+          
         </div>
       </div>
+      <div class="form-group mt-3">
+        <button type="submit" class="button button-contactForm boxed-btn">
+          Update profile
+        </button>
+      </div>
+      
     </div>
   </div>
 </section>
+</form>
 <!---------------------------USER DASHBOARD---------->

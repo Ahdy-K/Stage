@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/request")
+@CrossOrigin(origins = "*")
 public class RequestController {
 
     private RequestService requestService;
@@ -53,14 +54,24 @@ public class RequestController {
         requestService.deleteRequest(id);
 
     }
-   /* @GetMapping("/getRequestByUser/{userId}")
-    public List<RequestApplication> getRequestByUserId(@PathVariable("userId") Long userId){
-        return  requestService.getRequestByUserId(userId);
+    @PutMapping("/confirm/{id}")
+    public void ConfirmRequest(@PathVariable("id") Long id) {
+        requestService.ConfirmRequest(id);
 
-    }*/
+    }
+    @GetMapping("/getRequestByUser/{userId}")
+    public List<RequestApplication> getRequestByUserId(@PathVariable("userId") Long userId){
+        return  requestService.getRequestByUser(userId);
+
+    }
     @GetMapping("/getRequestByOffer/{offerid}")
     public List<RequestApplication> getRequestByOffer(@PathVariable("offerid") Long offerid){
         return  requestService.getRequestByOffer(offerid);
+
+    }
+    @GetMapping("/getRequestByuserAndOffer/{userid}/{offerid}")
+    public List<RequestApplication> getRequestByUserAndOffer(@PathVariable("userid") Long userid,@PathVariable("offerid") Long offerid){
+        return  requestService.getRequestByUserAndOffer(userid,offerid);
 
     }
 }

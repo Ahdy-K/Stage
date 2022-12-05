@@ -7,15 +7,15 @@ import { ListofferComponent } from '../offre/components/listoffer/listoffer.comp
 
 @NgModule({
   declarations: [
-    IndexComponent,
-    ListofferComponent
+    
+   
 
 
 
   ],
   imports: [
     CommonModule,
-    ListofferComponent
+
 
 
 

@@ -11,6 +11,7 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { SignupComponent } from './user/components/signup/signup.component';
+import { SignupComponent as  EnSignupComponent} from './entreprise/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { CvComponent } from './user/components/cv/cv.component';
 //import { UserprofileComponent } from './user/userprofile/userprofile.component';
@@ -29,14 +30,24 @@ import { DetailsOfferComponent } from './entreprise/components/details-offer/det
 import { ListEntreprisesComponent } from './entreprise/components/list-entreprises/list-entreprises.component';
 import { DetailsComponent } from './offre/components/details/details.component';
 import { DashboardComponent } from './user/components/dashboard/dashboard.component';
+import { DashboardComponent as EnDashboardComponent } from './entreprise/components/dashboard/dashboard.component';
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
 
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ResumeComponent } from './resume/resume.component';
-
+import { InternshipsComponent } from './user/components/internships/internships.component';
+import { EntrepriseprofileComponent } from './entreprise/components/entrepriseprofile/entrepriseprofile.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { DetailEntrepriseComponent } from './entreprise/components/detail-entreprise/detail-entreprise.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter'
+import { IndexComponent } from './home/components/index/index.component';
+import { RecommendedComponent } from './user/components/recommended/recommended.component';
+import { ApplicationsComponent } from './user/components/applications/applications.component';
 //import { ViewCVComponent } from './Stage/stagi.tn/src/app/user/components/view-cv/view-cv.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +75,14 @@ import { ResumeComponent } from './resume/resume.component';
     CvComponent,
     UserprofileComponent,
     ResumeComponent,
-    
+    InternshipsComponent,
+    EnDashboardComponent,
+    EnSignupComponent,
+    EntrepriseprofileComponent,
+    DetailEntrepriseComponent,
+    IndexComponent,
+    RecommendedComponent,
+    ApplicationsComponent
 
   ],
   imports: [
@@ -76,7 +94,10 @@ import { ResumeComponent } from './resume/resume.component';
     BrowserAnimationsModule,
     MatDialogModule,
     NgxExtendedPdfViewerModule,
-    PdfViewerModule
+    PdfViewerModule,
+    MatChipsModule,
+    Ng2SearchPipeModule,
+    NgSelectModule
 
 
 

@@ -6,6 +6,7 @@ import de.tekup.entreprise_service.repositories.EntrepriseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class EntrepriseServiceImp implements  EntrepriseService {
 
     private final EntrepriseRepository entrepriseRepository;
    // private final OfferRepository offerRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final BCryptPasswordEncoder passwordEncoder;
     @Override
     public Entreprise saveEntreprise(Entreprise entreprise) {
         entreprise.setPassword(passwordEncoder.encode(entreprise.getPassword()));

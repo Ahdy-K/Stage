@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/spontaneousapplications")
 public class InternshipController {
     @Autowired
@@ -26,27 +27,30 @@ public class InternshipController {
     public List<DicrectApplication> getUserApplications(@PathVariable("userid") Long userid){
         return this.internshipService.getUserSApplications(userid);
     }
-    // Returning a user specific application(by id)
-    @GetMapping("/userapplications/{userid}/{id}")
-    public DicrectApplication getUserInternshipById(@PathVariable("userid") Long userid, @PathVariable("id") Long id){
-        return this.internshipService.getUserInternshipById(id);
-    }
 
-    // Manage Enreprise applications
     //get entreprise applications
     @GetMapping("/entrepriseapplications/{id}")
     public List<DicrectApplication> getEntrepriseApplications(@PathVariable("id") Long id){
-        return this.internshipService.getEntrepriseSApplications(id);
+        return this.internshipService.getAllInernshipsApplicationsByEntreprise(id);
     }
-    @PostMapping("/apply/enterprise/{enterpriseId}")
+    @PostMapping("/apply/enterprise/{enterpriseId}/{userId}")
     // userid
-    public DicrectApplication applyForInternship(@PathVariable("enterpriseId") Long enterpriseId, DicrectApplication internship){
-        // return some null fields
-        return this.internshipService.addInternship(internship);
+    public DicrectApplication applyForInternship(@PathVariable("userId") Long userId,@PathVariable("enterpriseId") Long enterpriseId){
+        return this.internshipService.addInternship(userId,enterpriseId);
     }
-    @PutMapping("/apply/enterprise/{enterpriseId}/{internshipId}")
-    //get userId to return only user applications
-    public DicrectApplication updateApplication(@PathVariable("internshipId") Long internshipId, DicrectApplication inetrnship){
-        return this.internshipService.updateInternshipApplication(internshipId, inetrnship);
+
+    @DeleteMapping("/deleteapplication/{id}")
+    public void deleteApplication(@PathVariable("id") Long id ){
+         this.internshipService.deleteApplication(id);
     }
+
+    @PutMapping("/rejectapplication/{id}")
+    public void rejectapplication(@PathVariable("id") Long id ){
+        this.internshipService.rejectApplication(id);
+    }
+    @PutMapping("/accesptapplication/{id}")
+    public void accesptapplication(@PathVariable("id") Long id ){
+        this.internshipService.acceptApplication(id);
+    }
+
 }

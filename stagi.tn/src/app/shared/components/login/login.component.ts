@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           'ACCOUNT',
           this.decodedToken['accountType']
         );
-
+          this.router.navigate(['/'])
         window.location.reload();
       },
       (error) => {

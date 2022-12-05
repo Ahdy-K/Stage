@@ -7,7 +7,7 @@ import { LoginComponent } from './shared/components/login/login.component';
 
 import { ListofferComponent } from './offre/components/listoffer/listoffer.component';
 import { DashboardComponent } from './user/components/dashboard/dashboard.component';
-
+import { DashboardComponent as EnDashboardComponent } from './entreprise/components/dashboard/dashboard.component';
 import { MyoffersComponent } from './entreprise/components/myoffers/myoffers.component';
 import { ListUserComponent } from './user/components/list-user/list-user.component';
 import { DetailsOfferComponent } from './entreprise/components/details-offer/details-offer.component';
@@ -18,6 +18,11 @@ import { CvComponent } from './user/components/cv/cv.component';
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
 import { ResumeComponent } from './resume/resume.component';
+import { InternshipsComponent } from './user/components/internships/internships.component';
+import { EntrepriseprofileComponent } from './entreprise/components/entrepriseprofile/entrepriseprofile.component';
+import { DetailEntrepriseComponent } from './entreprise/components/detail-entreprise/detail-entreprise.component';
+import { RecommendedComponent } from './user/components/recommended/recommended.component';
+import { ApplicationsComponent } from './user/components/applications/applications.component';
 
 //import { ViewCVComponent } from './user/components/view-cv/view-cv.component';
 
@@ -59,11 +64,20 @@ const routes: Routes = [
   { path: 'userprofile/:id', component: UserprofileComponent },
   { path: 'user/dashboard/:id', component: DashboardComponent },
   { path: 'resume', component: ResumeComponent },
+  { path: 'recommanded', component: RecommendedComponent },
   // { path: 'user/dashboard/viewcv/:cvname', component: ViewCVComponent },
+  { path: 'requests', component: InternshipsComponent },
+  { path: 'entreprise/dashboard/:id', component: EnDashboardComponent },
+  { path: 'entrepriseprofile/:id', component: EntrepriseprofileComponent },
+  {path: 'entreprisedetails/:id', component: DetailEntrepriseComponent},
+  
+  { path: 'applications', component: ApplicationsComponent },
+
+ 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

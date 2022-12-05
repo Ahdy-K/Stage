@@ -20,14 +20,14 @@
                 <div class="single-job-items mb-30">
                     <div class="job-items" [routerLink]="['/requests',offer.id]">
                         <div class="company-img">
-                            <img src="assets/img/icon/job-list2.png" alt="">
+                            <img src={{ImageUrl}} alt="" class="rounded-circle img-fluid" style="width: 70px">
 
                         </div>
                         <div class="job-tittle">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th colspan="2">{{offer.subject}}</th>
+                                        <th colspan="2">{{offer.subject|slice:0:100}} ...</th>
                                     </tr>
                                 </thead>
                                 <p >
@@ -41,7 +41,7 @@
                             <span>from {{offer.begin_date}} to {{offer.end_date}}</span>
                             <ul>
                                 <br>
-                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                                <li><i class="fas fa-map-marker-alt"></i>Tunis, Tunisia</li>
                                 
 
                             </ul>
@@ -52,7 +52,7 @@
                         
                         <div>
                             <div style="margin-top: 20%;">
-                                <a><i style="color:red; " class="fa fa-trash"></i></a>
+                                <a><i style="color:red; " class="fa fa-trash" (click)="deleteOffer(offer.id)"></i></a>
                                 
                             </div>
                             <div style="margin-top: 20%;" (click)="openUpdateDialog('3000','1000',offer.id)">

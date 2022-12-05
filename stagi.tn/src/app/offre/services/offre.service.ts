@@ -26,7 +26,7 @@ export class OffreService {
   getEntrepriseById(id:number):Observable<any>
   {
 
-   return this.http.get('http://localhost:8081/api-entreprise/get-entreprise-by-id/'+id)
+   return this.http.get('http://localhost:9090/api-user/getEntreprise/'+id)
 
   }
   getEntrepriseByIdAsUser(id:number):Observable<any>
@@ -51,4 +51,7 @@ export class OffreService {
   {
     return this.http.get('http://localhost:9090/api-user/get-user/'+username);
   }
+  
+
+ 
 }

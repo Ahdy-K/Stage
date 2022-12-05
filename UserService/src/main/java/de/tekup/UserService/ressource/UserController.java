@@ -171,6 +171,10 @@ public class UserController {
         //return ResponseEntity.ok().body(url);
         return map;
     }
+    @GetMapping("/getUserProfile/{id}")
+    public String getUserProfile(@PathVariable("id")Long id){
+        return this.userService.getUserProfile(id);
+    }
 
 
 }
