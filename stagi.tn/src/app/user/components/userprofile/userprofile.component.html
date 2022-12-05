@@ -155,6 +155,77 @@
                 />
               </div>
             </div>
+            <div
+              (click)="(completeProfileBtn)"
+              class="completeProfile"
+              *ngIf="completeProfile"
+            >
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="dateob">URLS :</label>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="user.urls"
+                    name="urls"
+                    id="urls"
+                    type="textarea"
+                  />
+                </div>
+              </div>
+              <!---->
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="dateob">Speciality :</label>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="user.speciality"
+                    name="speciality"
+                    id="speciality"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!---->
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="dateob">Skills :</label>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="user.skills"
+                    name="skills"
+                    id="skills"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!---->
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="dateob">Soft skills :</label>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="user.softSkills"
+                    name="softSkills"
+                    id="softSkills"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!---->
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="dateob">Intro :</label>
+                  <input
+                    class="form-control"
+                    [(ngModel)]="user.intro"
+                    name="intro"
+                    id="intro"
+                    type="textarea"
+                  />
+                </div>
+              </div>
+              <!---->
+            </div>
           </div>
           <div class="form-group mt-3">
             <button type="submit" class="button button-contactForm boxed-btn">

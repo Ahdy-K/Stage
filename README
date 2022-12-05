@@ -1,1 +1,12 @@
 # Stage
+## build and create docker images from microservices:
+1- build each service using: mvn clean compile package
+2- add Dockerfile to each microservice
+3- run: docker build --pull --rm -f "Dockerfile" -t nameoftheservice:tag "."
+
+4- run in standalone mode :: docker run -d --name myuserservice -p 33888:9090 -e DB_HOST=mysqldb -e DB_USERNAME=root -e DB_PASSWORD=1234 -e ZIPKIN=zipkin --network=mysqlNetwork userservice
+=> hard code the db name befor running the image build cmd
+
+=> GET IP ADDRESSES: docker network inspect stagi_test-network
+
+** => run in docker compose mode: docker compose up  --remove-orphans

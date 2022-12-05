@@ -16,6 +16,9 @@ services:
       MYSQL_ROOT_PASSWORD: '1234'
     ports:
       - "3306:3306"
+    networks:
+      network:
+        ipv4_address: 12.0.0.2
   phpmyadmin:
     image: phpmyadmin
     restart: always
@@ -23,3 +26,127 @@ services:
       - 8080:80
     environment:
       - PMA_ARBITRARY=1
+    networks:
+      network:
+        ipv4_address: 12.0.0.3
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./config/:/etc/prometheus
+      - ./data/prometheus:/data
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention=31d'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - "9977:9090"
+    networks:
+      network:
+        ipv4_address: 12.0.0.4
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      network:
+        ipv4_address: 12.0.0.5
+    # start grafana after prometheus with depends_on:
+
+  zipkin:
+    image: openzipkin/zipkin
+    environment:
+      - STORAGE_TYPE=mem
+    ports:
+      - "9411:9411"
+    networks:
+      network:
+        ipv4_address: 12.0.0.16
+  userservice:
+    image: userservice
+    ports:
+      - "9090:9090"
+    networks:
+      network:
+        ipv4_address: 12.0.0.6
+    depends_on:
+      - db
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://10.0.0.40:8761/eureka
+        -DZIPKIN_SERVER=http://10.0.1.26:9411/
+# Internship
+  internshipservice:
+    image: internshipservice
+    ports:
+      - "9099:9099"
+    networks:
+      network:
+        ipv4_address: 12.0.0.7
+    depends_on:
+      - db
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://10.0.0.5:8761/eureka
+        -DZIPKIN_SERVER=http://10.0.1.26:9411/
+# Entreprise:
+  entrepriseservice:
+    image: entrepriseservice
+    ports:
+      - "8081:8081"
+    networks:
+      network:
+        ipv4_address: 12.0.0.8
+    depends_on:
+      - db
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://10.0.0.5:8761/eureka
+        -DZIPKIN_SERVER=http://10.0.1.26:9411/
+# AuthService:
+  authservice:
+    image: authservice
+    ports:
+      - "9004:9004"
+    networks:
+      network:
+        ipv4_address: 12.0.0.9
+    depends_on:
+      - db
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://10.0.0.5:8761/eureka
+        -DZIPKIN_SERVER=http://10.0.1.26:9411/
+
+  eurekadiscoveryservice:
+    image: eurekadiscoveryservice
+    ports:
+      - "8761:8761"
+    networks:
+      network:
+        ipv4_address: 12.0.0.10
+  gatwayservice:
+    image: gatwayservice
+    ports:
+      - "8881:8881"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://10.0.0.5:8761/eureka
+        -DZIPKIN_SERVER=http://10.0.1.26:9411/
+    networks:
+      network:
+        ipv4_address: 12.0.0.11
+
+#networks:
+  #test-network:
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 12.0.0.0/16
+          gateway: 12.0.0.1
