@@ -32,6 +32,10 @@ import { DashboardComponent } from './user/components/dashboard/dashboard.compon
 import { RequestsComponent } from './entreprise/components/requests/requests.component';
 
 import { UserprofileComponent } from './user/components/userprofile/userprofile.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ResumeComponent } from './resume/resume.component';
+
 //import { ViewCVComponent } from './Stage/stagi.tn/src/app/user/components/view-cv/view-cv.component';
 
 @NgModule({
@@ -55,9 +59,13 @@ import { UserprofileComponent } from './user/components/userprofile/userprofile.
     ListofferComponent,
     RequestsComponent,
 
+
+
     CvComponent,
     UserprofileComponent,
-    //ViewCVComponent,
+    ResumeComponent,
+    
+
   ],
   imports: [
     BrowserModule,
@@ -67,6 +75,12 @@ import { UserprofileComponent } from './user/components/userprofile/userprofile.
     NgxMatSelectSearchModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    NgxExtendedPdfViewerModule,
+    PdfViewerModule
+
+
+
+
   ],
 
   providers: [
@@ -75,7 +89,8 @@ import { UserprofileComponent } from './user/components/userprofile/userprofile.
       useClass: AuthInterceptor,
       multi: true,
     },
+   
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

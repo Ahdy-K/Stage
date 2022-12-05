@@ -54,8 +54,8 @@ public class FileStorageService {
             /*if(userId.equals("image")){
                 fileName = "C:\\AK\\"+fileName;
             }else fileName = "C:\\AK\\"+fileName;//+".pdf";*/
-            //fileName="C:\\Users\\boual\\Desktop\\Cii-3\\Projet Stagi\\stagi\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
-            fileName = "C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
+            fileName="C:\\Users\\boual\\Desktop\\Cii-3\\Projet Stagi\\stagi\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
+            //fileName = "C:\\Users\\Asus\\Downloads\\ProjectStagi\\Stage\\stagi.tn\\src\\assets\\img\\pdp\\"+fileName;
             // Copy file to the target location (Replacing existing file with the same name)
             //Path targetLocation = this.fileStorageLocation.resolve(fileName);
             Path targetLocation = this.path.resolve(fileName);
